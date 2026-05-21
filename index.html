@@ -338,6 +338,18 @@
   </div>
 </div>
 
-<script src="app.js?v=12"></script>
+<!-- LIGHTBOX (Elvin's work gallery) -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Photo viewer">
+  <button class="lb-close" data-lb-close aria-label="Close">&times;</button>
+  <button class="lb-nav lb-prev" data-lb-prev aria-label="Previous photo">&lsaquo;</button>
+  <button class="lb-nav lb-next" data-lb-next aria-label="Next photo">&rsaquo;</button>
+  <div class="lb-stage" id="lbStage">
+    <img class="lb-img" id="lbImg" alt="" draggable="false"/>
+  </div>
+  <div class="lb-counter" id="lbCounter" aria-live="polite"></div>
+  <div class="lb-hint" aria-hidden="true">Scroll / pinch to zoom · &larr; &rarr; to navigate</div>
+</div>
+
+<script src="app.js?v=13"></script>
 </body>
 </html>
