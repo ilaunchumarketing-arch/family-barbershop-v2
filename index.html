@@ -3,40 +3,28 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Family Barbershop — Kissimmee's Premier Barber Experience</title>
-<meta name="description" content="Family Barbershop — 10 master barbers. Fades, beards, lineups. Book directly with your barber in Kissimmee, FL." />
+<title>Family Barbershop — Kissimmee's Master Barbers</title>
+<meta name="description" content="Family Barbershop — ten master barbers in Kissimmee, FL. Pick your barber, view their portfolio, book direct. Fades, beards, lineups." />
+<meta name="theme-color" content="#0A0A0C" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=7" />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=11" />
 </head>
 <body>
 
 <!-- NAV -->
 <header class="nav" id="nav">
   <div class="nav-inner">
-    <a href="#top" class="brand">
-      <span class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 64 64" width="44" height="44">
-          <defs>
-            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#E11D2E"/>
-              <stop offset="100%" stop-color="#1E5AE8"/>
-            </linearGradient>
-          </defs>
-          <circle cx="32" cy="32" r="30" fill="url(#g1)"/>
-          <circle cx="32" cy="32" r="30" fill="none" stroke="#fff" stroke-width="2" opacity=".8"/>
-          <text x="32" y="40" text-anchor="middle" font-family="Playfair Display, serif" font-size="22" font-weight="900" fill="#fff">FB</text>
-        </svg>
-      </span>
-      <span class="brand-text">
-        <strong>Family</strong><span>Barbershop</span>
+    <a href="#top" class="brand" aria-label="Family Barbershop home">
+      <span class="brand-logo">
+        <img src="img/logo.png" alt="Family Barbershop" />
       </span>
     </a>
-    <nav class="nav-links">
+    <nav class="nav-links" aria-label="Primary">
       <a href="#barbers">Barbers</a>
       <a href="#services">Services</a>
-      <a href="#gallery">Gallery</a>
+      <a href="#gallery">Work</a>
       <a href="#visit">Visit</a>
     </nav>
     <a href="#barbers" class="btn btn-primary btn-sm">Book Now</a>
@@ -45,110 +33,142 @@
 
 <!-- HERO -->
 <section id="top" class="hero">
-  <div class="hero-bg-img" aria-hidden="true"></div>
-  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-bg" aria-hidden="true"></div>
   <div class="container hero-inner">
     <div class="hero-copy">
       <span class="eyebrow"><span class="dot"></span> Kissimmee, FL · Est. 2018</span>
       <h1 class="display">
-        Sharp cuts.<br/>
-        <span class="accent-red">Real</span> barbers.<br/>
-        <span class="accent-blue">Zero</span> wait.
+        Sharp<br/>
+        cuts.<br/>
+        <em>Real</em> barbers.
       </h1>
-      <p class="lead">Ten master barbers under one roof. Pick your artist, view their portfolio, and book your chair — all in under 30 seconds.</p>
+      <p class="lead">Ten master barbers under one roof. Pick your artist, see their portfolio, book your chair — under a minute, no phone tag.</p>
       <div class="hero-cta">
-        <a href="#barbers" class="btn btn-primary">Choose Your Barber</a>
+        <a href="#barbers" class="btn btn-primary">
+          Find Your Barber
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
         <a href="https://instagram.com/family.barbershop" target="_blank" rel="noopener" class="btn btn-ghost">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm5.25-2.75a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M16 11.4a4 4 0 1 1-7.9 1.1A4 4 0 0 1 16 11.4z"/></svg>
           @family.barbershop
         </a>
       </div>
-      <div class="hero-stats">
-        <div><strong>10</strong><span>Master Barbers</span></div>
-        <div><strong>5,089</strong><span>IG Followers</span></div>
-        <div><strong>4.9★</strong><span>Google Rating</span></div>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <strong>4.9<span class="accent">★</span></strong>
+          <span>Google Rating</span>
+        </div>
+        <div class="hero-meta-item">
+          <strong>10</strong>
+          <span>Master Barbers</span>
+        </div>
+        <div class="hero-meta-item">
+          <strong>7<small style="font-size:.5em;display:inline-block;vertical-align:middle;color:var(--muted);letter-spacing:.18em;margin-left:6px">DAYS</small></strong>
+          <span>Open Weekly</span>
+        </div>
       </div>
     </div>
     <div class="hero-visual">
-      <div class="chair-card">
-        <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=800&q=80" alt="Barber giving a fade" />
-        <div class="chair-badge">
-          <span class="live"></span> 3 chairs open now
-        </div>
+      <div class="hero-sticker" aria-hidden="true">
+        <span>Walk-In</span>
+        <strong>OR</strong>
+        <span>Book Now</span>
       </div>
-      <div class="floaty floaty-1">
-        <div class="avatar" style="background-image:url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80')"></div>
-        <div>
-          <strong>Marcus R.</strong>
-          <small>Next: 2:15 PM</small>
-        </div>
-      </div>
-      <div class="floaty floaty-2">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
-        <div>
-          <strong>Appointment confirmed</strong>
-          <small>Fade + beard · $45</small>
-        </div>
+      <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=1200&q=85" alt="Master barber giving a precision fade" />
+      <div class="hero-tag">
+        <span class="pulse"></span>
+        3 Chairs Open Now
       </div>
     </div>
   </div>
 </section>
 
-<!-- TRUST BAR -->
-<section class="trust">
-  <div class="container trust-inner">
-    <div><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 15 8l7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg> 4.9 on Google</div>
-    <div><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6z"/></svg> Licensed Master Barbers</div>
-    <div><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg> Open 7 days a week</div>
-    <div><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> 2611 Simpson Rd, Kissimmee</div>
+<!-- MARQUEE (barber pole) -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Classic Cut $25</span>
+    <span>Skin Fade $45</span>
+    <span>Hot Towel Shave $35</span>
+    <span>Lineup $30</span>
+    <span>Full Grooming $65</span>
+    <span>Kids Cut $18</span>
+    <span>Classic Cut $25</span>
+    <span>Skin Fade $45</span>
+    <span>Hot Towel Shave $35</span>
+    <span>Lineup $30</span>
+    <span>Full Grooming $65</span>
+    <span>Kids Cut $18</span>
   </div>
-</section>
+</div>
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Master Barbers Only</span>
+    <span>Walk-Ins Welcome</span>
+    <span>Open 7 Days</span>
+    <span>Same-Day Booking</span>
+    <span>2611 Simpson Rd</span>
+    <span>Kissimmee, FL</span>
+    <span>Master Barbers Only</span>
+    <span>Walk-Ins Welcome</span>
+    <span>Open 7 Days</span>
+    <span>Same-Day Booking</span>
+    <span>2611 Simpson Rd</span>
+    <span>Kissimmee, FL</span>
+  </div>
+</div>
 
 <!-- SERVICES -->
 <section id="services" class="section services">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow"><span class="dot"></span> Services</span>
-      <h2>Every cut, every style.</h2>
-      <p class="sub">From classic tapers to modern textured crops — priced fair, done right.</p>
+      <div>
+        <span class="eyebrow"><span class="dot"></span> The Menu</span>
+        <h2>Every cut.<br/><em>Fair priced.</em></h2>
+      </div>
+      <p class="sub">Six services. Honest pricing. Master-barber work without the boutique markup. Walk in or pick your chair.</p>
     </div>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-ico red">✂</div>
-        <h3>Classic Haircut</h3>
-        <p>Scissor or clipper cut tailored to your style.</p>
-        <span class="price">$25</span>
+    <div class="services-list">
+      <div class="svc">
+        <div class="svc-name">
+          Classic Haircut
+          <small>Scissor or clipper, tailored to your style.</small>
+        </div>
+        <div class="svc-price">$25</div>
       </div>
-      <div class="service-card featured">
-        <div class="service-ico blue">⚡</div>
-        <h3>Skin Fade + Beard</h3>
-        <p>Signature fade, beard sculpt, hot towel finish.</p>
-        <span class="price">$45</span>
-        <span class="tag">Most booked</span>
+      <div class="svc">
+        <div class="svc-name">
+          Skin Fade + Beard <span class="svc-tag">Most Booked</span>
+          <small>Signature fade, beard sculpt, hot-towel finish.</small>
+        </div>
+        <div class="svc-price">$45</div>
       </div>
-      <div class="service-card">
-        <div class="service-ico red">👑</div>
-        <h3>Full Grooming Package</h3>
-        <p>Cut, beard, lineup, hot towel, scalp massage.</p>
-        <span class="price">$65</span>
+      <div class="svc">
+        <div class="svc-name">
+          Full Grooming
+          <small>Cut, beard, lineup, hot towel, scalp massage.</small>
+        </div>
+        <div class="svc-price">$65</div>
       </div>
-      <div class="service-card">
-        <div class="service-ico blue">🪒</div>
-        <h3>Hot Towel Shave</h3>
-        <p>Straight-razor shave the way it was meant to be.</p>
-        <span class="price">$35</span>
+      <div class="svc">
+        <div class="svc-name">
+          Hot Towel Shave
+          <small>Straight-razor shave, done the proper way.</small>
+        </div>
+        <div class="svc-price">$35</div>
       </div>
-      <div class="service-card">
-        <div class="service-ico red">🎨</div>
-        <h3>Hair Design / Lineup</h3>
-        <p>Custom lineups, parts, patterns, logos.</p>
-        <span class="price">$30</span>
+      <div class="svc">
+        <div class="svc-name">
+          Hair Design / Lineup
+          <small>Custom lineups, parts, patterns, logos.</small>
+        </div>
+        <div class="svc-price">$30</div>
       </div>
-      <div class="service-card">
-        <div class="service-ico blue">👦</div>
-        <h3>Kids Cut (12 &amp; under)</h3>
-        <p>Patient barbers, snacks, fun atmosphere.</p>
-        <span class="price">$18</span>
+      <div class="svc">
+        <div class="svc-name">
+          Kids Cut
+          <small>12 &amp; under — patient barbers, snacks, fun.</small>
+        </div>
+        <div class="svc-price">$18</div>
       </div>
     </div>
   </div>
@@ -158,21 +178,25 @@
 <section id="barbers" class="section barbers">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow"><span class="dot"></span> Meet The Team</span>
-      <h2>Pick your barber. <span class="accent-red">Book your chair.</span></h2>
-      <p class="sub">Every barber below has a portfolio of their best work. Tap any card to view more and book directly.</p>
+      <div>
+        <span class="eyebrow"><span class="dot"></span> Meet The Team</span>
+        <h2>Pick your<br/>barber. <em>Book direct.</em></h2>
+      </div>
+      <p class="sub">Every barber on the floor has years on the clippers and a portfolio that does the talking. Tap a card to lock in your chair.</p>
     </div>
     <div class="barbers-grid" id="barbersGrid"></div>
   </div>
 </section>
 
-<!-- GALLERY STRIP -->
+<!-- GALLERY -->
 <section id="gallery" class="section gallery">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow"><span class="dot"></span> The Work</span>
-      <h2>Straight from the chair.</h2>
-      <p class="sub">A live feed of our most recent cuts. Follow us <a href="https://instagram.com/family.barbershop" target="_blank" rel="noopener">@family.barbershop</a>.</p>
+      <div>
+        <span class="eyebrow"><span class="dot"></span> The Work</span>
+        <h2>Straight from<br/><em>the chair.</em></h2>
+      </div>
+      <p class="sub">Recent cuts from our barbers. Follow the daily drops <a href="https://instagram.com/family.barbershop" target="_blank" rel="noopener" style="color:var(--red);text-decoration:underline;text-underline-offset:3px">@family.barbershop</a>.</p>
     </div>
     <div class="gallery-grid" id="galleryGrid"></div>
   </div>
@@ -182,8 +206,11 @@
 <section class="section testimonials">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow"><span class="dot"></span> Reviews</span>
-      <h2>What our regulars say.</h2>
+      <div>
+        <span class="eyebrow"><span class="dot"></span> Reviews</span>
+        <h2>What our<br/>regulars <em>say.</em></h2>
+      </div>
+      <p class="sub">Five-star Google reviews don't lie. Here's three of them.</p>
     </div>
     <div class="tg">
       <figure class="t-card">
@@ -198,7 +225,7 @@
       </figure>
       <figure class="t-card">
         <div class="stars">★★★★★</div>
-        <blockquote>"Booking online with my barber directly? Game changer. No more phone tag."</blockquote>
+        <blockquote>"Booking with my barber directly? Game changer. No more phone tag."</blockquote>
         <figcaption>— Derek W.</figcaption>
       </figure>
     </div>
@@ -210,17 +237,20 @@
   <div class="container visit-grid">
     <div>
       <span class="eyebrow"><span class="dot"></span> Visit Us</span>
-      <h2>Walk in or book ahead.</h2>
+      <h2 style="margin-top:14px">Walk in,<br/>or <em>book ahead.</em></h2>
       <p class="sub">Walk-ins welcome — but booking guarantees your chair with your favorite barber.</p>
       <ul class="visit-info">
-        <li><strong>Address</strong><span>2611 Simpson Rd, Kissimmee, FL 34744</span></li>
-        <li><strong>Hours</strong><span>Mon–Sat · 9AM – 7PM<br/>Sun · 10AM – 2PM</span></li>
-        <li><strong>Phone</strong><span>(407) 555-0142</span></li>
+        <li><strong>Address</strong><span>2611 Simpson Rd<br/>Kissimmee, FL 34744</span></li>
+        <li><strong>Hours</strong><span>Mon – Sat &nbsp; 9 AM – 7 PM<br/>Sunday &nbsp;&nbsp;&nbsp; 10 AM – 2 PM</span></li>
+        <li><strong>Phone</strong><span><a href="tel:4075550142">(407) 555-0142</a></span></li>
         <li><strong>Instagram</strong><span><a href="https://instagram.com/family.barbershop" target="_blank" rel="noopener">@family.barbershop</a></span></li>
       </ul>
       <div class="visit-cta">
         <a href="#barbers" class="btn btn-primary">Book Now</a>
-        <a href="https://maps.google.com/?q=2611+Simpson+Rd+Kissimmee+FL" target="_blank" rel="noopener" class="btn btn-ghost">Get Directions</a>
+        <a href="https://maps.google.com/?q=2611+Simpson+Rd+Kissimmee+FL" target="_blank" rel="noopener" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Directions
+        </a>
       </div>
     </div>
     <div class="map-card" aria-label="Map to Family Barbershop">
@@ -235,18 +265,17 @@
 
 <!-- FOOTER -->
 <footer class="footer">
-  <div class="container footer-inner">
-    <div class="brand">
-      <span class="brand-mark">
-        <svg viewBox="0 0 64 64" width="40" height="40">
-          <circle cx="32" cy="32" r="30" fill="url(#g1)"/>
-          <text x="32" y="40" text-anchor="middle" font-family="Playfair Display, serif" font-size="22" font-weight="900" fill="#fff">FB</text>
-        </svg>
+  <div class="container">
+    <div class="footer-cap">Family <em>Barbershop</em></div>
+  </div>
+  <div class="footer-inner">
+    <a href="#top" class="brand">
+      <span class="brand-logo">
+        <img src="img/logo.png" alt="Family Barbershop" />
       </span>
-      <span class="brand-text"><strong>Family</strong><span>Barbershop</span></span>
-    </div>
+    </a>
     <p>© 2026 Family Barbershop · All rights reserved.</p>
-    <p class="tiny">Website demo by <strong style="color:#F58A1F">iLaunch U</strong></p>
+    <p class="tiny">Site by <strong>iLaunch U</strong></p>
   </div>
 </footer>
 
@@ -256,9 +285,9 @@
   <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="bookTitle">
     <button class="modal-close" data-close aria-label="Close">×</button>
     <div class="modal-head">
-      <div class="m-avatar" id="mAvatar"></div>
+      <div class="m-avatar" id="mAvatar" aria-hidden="true"></div>
       <div>
-        <span class="eyebrow"><span class="dot"></span> Book with</span>
+        <span class="eyebrow"><span class="dot"></span> Book With</span>
         <h3 id="bookTitle">Barber</h3>
         <p id="mSpec" class="m-spec"></p>
       </div>
@@ -268,7 +297,7 @@
         <select name="service" required>
           <option>Classic Haircut — $25</option>
           <option selected>Skin Fade + Beard — $45</option>
-          <option>Full Grooming Package — $65</option>
+          <option>Full Grooming — $65</option>
           <option>Hot Towel Shave — $35</option>
           <option>Hair Design / Lineup — $30</option>
           <option>Kids Cut — $18</option>
@@ -287,7 +316,7 @@
         </label>
       </div>
       <div class="row-2">
-        <label>Your name
+        <label>Your Name
           <input type="text" name="name" placeholder="Full name" required />
         </label>
         <label>Phone
@@ -298,17 +327,17 @@
         <textarea name="notes" rows="2" placeholder="Length preference, styling notes..."></textarea>
       </label>
       <button type="submit" class="btn btn-primary btn-block">Confirm Appointment</button>
-      <p class="tiny center">This is a demo — no real appointment is created.</p>
+      <p class="tiny center">Demo — no real appointment is created.</p>
     </form>
     <div class="booking-success" id="bookSuccess">
       <div class="ok">✓</div>
-      <h3>You're booked!</h3>
+      <h3>You're booked.</h3>
       <p id="okMsg"></p>
       <button class="btn btn-ghost" data-close>Done</button>
     </div>
   </div>
 </div>
 
-<script src="app.js?v=7"></script>
+<script src="app.js?v=11"></script>
 </body>
 </html>
