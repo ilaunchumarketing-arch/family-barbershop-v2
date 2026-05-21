@@ -2,6 +2,31 @@
 
 const BARBERS = [
   {
+    id: "elvin",
+    name: "Elvin Rodriguez",
+    specialty: "Master Barber",
+    years: 21,
+    rating: 5.0,
+    reviews: 612,
+    price: 45,
+    status: "open",
+    statusText: "Open Today",
+    featured: true,
+    bio: "Con 21 años de experiencia como barbero profesional, Elvin es uno de los maestros del oficio en Family Barbershop. Su pasión por las líneas perfectas, los fades limpios y el cuidado de cada cliente lo convierten en una pieza fundamental del equipo.",
+    tags: ["Skin Fades", "Líneas Precisas", "Diseños"],
+    photo: "img/elvin_profile.jpg",
+    cuts: [
+      "img/elvin_work_1.jpg",
+      "img/elvin_work_2.jpg",
+      "img/elvin_work_3.jpg",
+      "img/elvin_work_4.jpg",
+      "img/elvin_work_5.jpg",
+      "img/elvin_work_6.jpg",
+      "img/elvin_work_7.jpg",
+      "img/elvin_work_8.jpg"
+    ]
+  },
+  {
     id: "marcus",
     name: "Marcus Rivera",
     specialty: "Master Barber",
@@ -195,7 +220,48 @@ const BARBERS = [
 
 /* Render barber cards */
 const grid = document.getElementById('barbersGrid');
-grid.innerHTML = BARBERS.map(b => `
+
+function renderFeatured(b){
+  return `
+  <article class="barber-card featured">
+    <span class="featured-ribbon">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M12 2l2.6 6.6L22 9.3l-5.5 4.8L18.2 22 12 18.3 5.8 22l1.7-7.9L2 9.3l7.4-.7L12 2z"/></svg>
+      Maestro del Equipo
+    </span>
+    <div class="featured-top">
+      <div class="featured-photo">
+        <span class="status ${b.status}">${b.statusText}</span>
+        <img src="${b.photo}" alt="${b.name}, ${b.specialty}" />
+      </div>
+      <div class="featured-info">
+        <span class="featured-eyebrow"><span class="dot"></span> ${b.years} años de experiencia</span>
+        <h3 class="featured-name">${b.name}</h3>
+        <div class="featured-specialty">${b.specialty}</div>
+        <div class="featured-stats">
+          <div class="featured-stat"><span class="star">★</span><strong>${b.rating.toFixed(1)}</strong><small>${b.reviews} reviews</small></div>
+          <div class="featured-sep">·</div>
+          <div class="featured-stat featured-stat-price">From<strong>$${b.price}</strong></div>
+        </div>
+        <p class="featured-bio">${b.bio}</p>
+        ${b.tags ? `<div class="featured-tags">${b.tags.map(t=>`<span>${t}</span>`).join('')}</div>` : ''}
+        <button class="barber-book featured-book" data-book="${b.id}" aria-label="Book with ${b.name}">
+          Book with ${b.name.split(' ')[0]}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="featured-gallery-head">
+      <h4>El trabajo de ${b.name.split(' ')[0]}</h4>
+      <span>${b.cuts.length} cortes recientes</span>
+    </div>
+    <div class="featured-gallery">
+      ${b.cuts.map(c => `<div class="fg-shot"><img src="${c}" alt="Trabajo de ${b.name}" loading="lazy"/></div>`).join('')}
+    </div>
+  </article>`;
+}
+
+function renderStandard(b){
+  return `
   <article class="barber-card">
     <div class="barber-photo">
       <span class="status ${b.status}">${b.statusText}</span>
@@ -216,7 +282,7 @@ grid.innerHTML = BARBERS.map(b => `
     <div class="barber-body">
       <p class="barber-bio">${b.bio}</p>
       <div class="portfolio" aria-label="Recent work">
-        ${b.cuts.map(c => `<div class="shot"><img src="${c}" alt="Recent cut by ${b.name.split(' ')[0]}" loading="lazy"/></div>`).join('')}
+        ${b.cuts.slice(0,4).map(c => `<div class="shot"><img src="${c}" alt="Recent cut by ${b.name.split(' ')[0]}" loading="lazy"/></div>`).join('')}
       </div>
       <div class="barber-foot">
         <div class="barber-price">From<strong>$${b.price}</strong></div>
@@ -226,8 +292,10 @@ grid.innerHTML = BARBERS.map(b => `
         </button>
       </div>
     </div>
-  </article>
-`).join('');
+  </article>`;
+}
+
+grid.innerHTML = BARBERS.map(b => b.featured ? renderFeatured(b) : renderStandard(b)).join('');
 
 /* Gallery strip — curated cuts */
 const GALLERY = [
