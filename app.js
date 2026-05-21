@@ -27,6 +27,26 @@ const BARBERS = [
     ]
   },
   {
+    id: "barber2",
+    name: "Our Barber",
+    specialty: "Master Barber",
+    years: 10,
+    rating: 5.0,
+    reviews: 120,
+    price: 45,
+    status: "open",
+    statusText: "Open Today",
+    featured: true,
+    bio: "Precision cuts, clean fades. Bringing his craft to Family Barbershop.",
+    tags: ["Fades", "Lineups", "Beards"],
+    photo: "img/barber2_profile.jpg",
+    cuts: [
+      "img/barber2_work_1.jpg",
+      "img/barber2_work_2.jpg",
+      "img/barber2_work_3.jpg"
+    ]
+  },
+  {
     id: "marcus",
     name: "Marcus Rivera",
     specialty: "Master Barber",
@@ -416,14 +436,13 @@ function lbStep(d){
   lbLoad();
 }
 
-// Wire up every featured-gallery (Elvin is the only one today, but future-proof)
-document.querySelectorAll('.featured-gallery').forEach(g => {
-  const imgs = Array.from(g.querySelectorAll('.fg-shot img'));
-  imgs.forEach((img, i) => {
-    img.addEventListener('click', () => {
-      lbList = imgs.map(im => ({ src: im.currentSrc || im.src, alt: im.alt }));
-      lbOpen(i);
-    });
+// Wire every featured-gallery image into one combined lightbox list so
+// navigation flows across all featured barbers' photos.
+const featuredImgs = Array.from(document.querySelectorAll('.featured-gallery .fg-shot img'));
+featuredImgs.forEach((img, i) => {
+  img.addEventListener('click', () => {
+    lbList = featuredImgs.map(im => ({ src: im.currentSrc || im.src, alt: im.alt }));
+    lbOpen(i);
   });
 });
 
