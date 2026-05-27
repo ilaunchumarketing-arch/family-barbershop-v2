@@ -599,19 +599,16 @@ h3{
     0 0 60px -10px var(--blue-glow),
     0 30px 80px -20px rgba(255,39,64,.22);
 }
-/* Bento sizes: feature every 5th card large */
-.barber-card:nth-child(5n+1){grid-column:span 3}
-.barber-card:nth-child(5n+1) .barber-photo{aspect-ratio:auto;flex:1;min-height:340px}
+/* Standard cards stay uniform; the hero (.featured) spans the full row on its own */
+.barber-card{align-self:start}
 
 @media(max-width:1080px){
   .barbers-grid{grid-template-columns:repeat(4, 1fr)}
   .barber-card{grid-column:span 2}
-  .barber-card:nth-child(5n+1){grid-column:span 4}
-  .barber-card:nth-child(5n+1) .barber-photo{min-height:320px}
 }
 @media(max-width:720px){
   .barbers-grid{grid-template-columns:1fr;grid-auto-rows:auto}
-  .barber-card,.barber-card:nth-child(5n+1){grid-column:span 1}
+  .barber-card{grid-column:span 1}
 }
 
 .barber-photo{
@@ -777,6 +774,55 @@ h3{
   box-shadow:0 12px 30px -8px var(--red-glow);
 }
 .barber-book svg{width:15px;height:15px}
+
+/* ============ BARBER CONTACT (phone + IG) ============ */
+.barber-contact{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px 16px;
+  margin-top:-4px;
+}
+.barber-phone,
+.barber-ig{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-family:var(--ff-body);
+  font-size:12.5px;
+  font-weight:600;
+  letter-spacing:0.02em;
+  line-height:1;
+  padding:6px 0;
+  transition:color .2s var(--ease), transform .2s var(--ease);
+  white-space:nowrap;
+}
+.barber-phone{color:var(--text-2)}
+.barber-phone:hover{color:var(--text)}
+.barber-phone svg{
+  width:13px;height:13px;
+  color:var(--muted);
+  transition:color .2s var(--ease);
+  flex:none;
+}
+.barber-phone:hover svg{color:var(--red)}
+.barber-ig{color:var(--red)}
+.barber-ig:hover{color:var(--red-2);transform:translateY(-1px)}
+.barber-ig svg{
+  width:14px;height:14px;
+  flex:none;
+}
+/* Featured spotlight: a touch more breathing room and slightly larger type */
+.featured-info .barber-contact{
+  margin-top:2px;
+  gap:10px 22px;
+}
+.featured-info .barber-phone,
+.featured-info .barber-ig{
+  font-size:13.5px;
+}
+.featured-info .barber-phone svg{width:14px;height:14px}
+.featured-info .barber-ig svg{width:15px;height:15px}
 
 /* ============ GALLERY ============ */
 .gallery{background:var(--bg)}
