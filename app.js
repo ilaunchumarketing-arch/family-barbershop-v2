@@ -12,6 +12,8 @@ const BARBERS = [
     status: "open",
     statusText: "Open Today",
     featured: true,
+    phone: "(407) 242-3301",
+    instagram: "elvin.cuts",
     bio: "Con 21 años de experiencia como barbero profesional, Elvin es uno de los maestros del oficio en Family Barbershop. Su pasión por las líneas perfectas, los fades limpios y el cuidado de cada cliente lo convierten en una pieza fundamental del equipo.",
     tags: ["Skin Fades", "Líneas Precisas", "Diseños"],
     photo: "img/elvin_profile.jpg",
@@ -27,8 +29,8 @@ const BARBERS = [
     ]
   },
   {
-    id: "barber2",
-    name: "Our Barber",
+    id: "bebo",
+    name: "Bebo",
     specialty: "Master Barber",
     years: 10,
     rating: 5.0,
@@ -36,19 +38,20 @@ const BARBERS = [
     price: 45,
     status: "open",
     statusText: "Open Today",
-    featured: true,
+    phone: "(850) 346-0980",
+    instagram: "family.barbershop",
     bio: "Precision cuts, clean fades. Bringing his craft to Family Barbershop.",
-    tags: ["Fades", "Lineups", "Beards"],
     photo: "img/barber2_profile.jpg",
     cuts: [
       "img/barber2_work_1.jpg",
       "img/barber2_work_2.jpg",
-      "img/barber2_work_3.jpg"
+      "img/barber2_work_3.jpg",
+      "img/barber2_work_1.jpg"
     ]
   },
   {
-    id: "marcus",
-    name: "Marcus Rivera",
+    id: "jonathan",
+    name: "Jonathan",
     specialty: "Master Barber",
     years: 12,
     rating: 4.9,
@@ -56,7 +59,9 @@ const BARBERS = [
     price: 45,
     status: "open",
     statusText: "Open Today",
-    bio: "Twelve years on the clippers. Marcus built his reputation on flawless skin fades and a chair-side manner that keeps regulars driving in from three counties.",
+    phone: "(407) 837-2057",
+    instagram: "family.barbershop",
+    bio: "Twelve years on the clippers. Jonathan built his reputation on flawless skin fades and a chair-side manner that keeps regulars driving in from three counties.",
     photo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=85",
     cuts: [
       "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=400&q=80",
@@ -66,27 +71,8 @@ const BARBERS = [
     ]
   },
   {
-    id: "jordan",
-    name: "Jordan Williams",
-    specialty: "Fade Specialist",
-    years: 8,
-    rating: 5.0,
-    reviews: 412,
-    price: 40,
-    status: "busy",
-    statusText: "Next 3:30",
-    bio: "Eight years sharpening one craft: the perfect fade. Jordan's chair is the busiest in the shop — for good reason.",
-    photo: "https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&w=900&q=85",
-    cuts: [
-      "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1559599101-f09722fb4948?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1620331311520-246422fd82f9?auto=format&fit=crop&w=400&q=80"
-    ]
-  },
-  {
-    id: "carlos",
-    name: "Carlos Mendez",
+    id: "joshua",
+    name: "Joshua",
     specialty: "Beard & Style Expert",
     years: 10,
     rating: 4.9,
@@ -94,7 +80,9 @@ const BARBERS = [
     price: 50,
     status: "open",
     statusText: "Open Today",
-    bio: "Ten years and counting. Carlos turns scruff into sculpture — beards, mustaches, and full-face grooming with a straight razor finish.",
+    phone: "(407) 989-9306",
+    instagram: "josh_the.barber",
+    bio: "Ten years and counting. Joshua turns scruff into sculpture — beards, mustaches, and full-face grooming with a straight razor finish.",
     photo: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=900&q=85",
     cuts: [
       "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80",
@@ -104,8 +92,8 @@ const BARBERS = [
     ]
   },
   {
-    id: "darius",
-    name: "Darius Thompson",
+    id: "kelvo",
+    name: "Kelvo",
     specialty: "Design & Lineup Pro",
     years: 7,
     rating: 4.9,
@@ -113,7 +101,9 @@ const BARBERS = [
     price: 45,
     status: "open",
     statusText: "Open Today",
-    bio: "If you want a logo, a part, or a freehand design in your fade — Darius is the artist. Seven years of clean lines and steady hands.",
+    phone: "(321) 217-1567",
+    instagram: "family.barbershop",
+    bio: "If you want a logo, a part, or a freehand design in your fade — Kelvo is the artist. Seven years of clean lines and steady hands.",
     photo: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=900&q=85",
     cuts: [
       "https://images.unsplash.com/photo-1583195764036-6dc248ac07d9?auto=format&fit=crop&w=400&q=80",
@@ -123,8 +113,8 @@ const BARBERS = [
     ]
   },
   {
-    id: "miguel",
-    name: "Miguel Santos",
+    id: "rafy",
+    name: "Rafy",
     specialty: "Texture Specialist",
     years: 9,
     rating: 4.8,
@@ -132,7 +122,9 @@ const BARBERS = [
     price: 40,
     status: "busy",
     statusText: "Next 4:45",
-    bio: "Nine years working with every hair type — curls, waves, coarse, fine. Miguel cuts to your texture, not against it.",
+    phone: "(407) 319-7849",
+    instagram: "dr.cerquillo",
+    bio: "Nine years working with every hair type — curls, waves, coarse, fine. Rafy cuts to your texture, not against it.",
     photo: "https://images.unsplash.com/photo-1534330207526-8e81f10ec6fc?auto=format&fit=crop&w=900&q=85",
     cuts: [
       "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=400&q=80",
@@ -142,8 +134,8 @@ const BARBERS = [
     ]
   },
   {
-    id: "andre",
-    name: "Andre Johnson",
+    id: "jose",
+    name: "Jose",
     specialty: "Classic Cuts Expert",
     years: 15,
     rating: 5.0,
@@ -151,7 +143,9 @@ const BARBERS = [
     price: 50,
     status: "open",
     statusText: "Open Today",
-    bio: "Fifteen years in the trade. Andre handles the classics — pompadours, side parts, scissor cuts — like the old-school masters who taught him.",
+    phone: "(786) 234-6663",
+    instagram: "jr_dahalloffamer",
+    bio: "Fifteen years in the trade. Jose handles the classics — pompadours, side parts, scissor cuts — like the old-school masters who taught him.",
     photo: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=900&q=85",
     cuts: [
       "https://images.unsplash.com/photo-1542327897-d73f4005b533?auto=format&fit=crop&w=400&q=80",
@@ -161,8 +155,8 @@ const BARBERS = [
     ]
   },
   {
-    id: "kevin",
-    name: "Kevin Torres",
+    id: "ricardo",
+    name: "Ricardo",
     specialty: "Kids & Family Cuts",
     years: 6,
     rating: 4.9,
@@ -170,7 +164,9 @@ const BARBERS = [
     price: 25,
     status: "open",
     statusText: "Open Today",
-    bio: "Six years and a magic touch with kids. Patient, fun, and quick — Kevin makes the first haircut a tradition, not a fight.",
+    phone: "(787) 925-7775",
+    instagram: "family.barbershop",
+    bio: "Six years and a magic touch with kids. Patient, fun, and quick — Ricardo makes the first haircut a tradition, not a fight.",
     photo: "https://images.unsplash.com/photo-1507081323647-4d250478b919?auto=format&fit=crop&w=900&q=85",
     cuts: [
       "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=400&q=80",
@@ -180,8 +176,8 @@ const BARBERS = [
     ]
   },
   {
-    id: "isaiah",
-    name: "Isaiah Brown",
+    id: "yamil",
+    name: "Yamil",
     specialty: "Curly & Natural Hair",
     years: 8,
     rating: 4.9,
@@ -189,7 +185,9 @@ const BARBERS = [
     price: 45,
     status: "open",
     statusText: "Open Today",
-    bio: "Eight years specializing in curly and natural textures. Isaiah cuts dry, shapes the curl pattern, and finishes with a sponge twist if you want it.",
+    phone: "(407) 432-9548",
+    instagram: "family.barbershop",
+    bio: "Eight years specializing in curly and natural textures. Yamil cuts dry, shapes the curl pattern, and finishes with a sponge twist if you want it.",
     photo: "https://images.unsplash.com/photo-1531384441138-2736e62e0919?auto=format&fit=crop&w=900&q=85",
     cuts: [
       "https://images.unsplash.com/photo-1615109398623-88346a601842?auto=format&fit=crop&w=400&q=80",
@@ -197,46 +195,13 @@ const BARBERS = [
       "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=400&q=80"
     ]
-  },
-  {
-    id: "luis",
-    name: "Luis Perez",
-    specialty: "Low Fade Specialist",
-    years: 11,
-    rating: 4.9,
-    reviews: 389,
-    price: 45,
-    status: "busy",
-    statusText: "Next 5:15",
-    bio: "Eleven years dialing in the low fade — the cleanest blend in the shop. Luis's regulars book a month out, so don't sleep on it.",
-    photo: "https://images.unsplash.com/photo-1500048993953-d23a436266cf?auto=format&fit=crop&w=900&q=85",
-    cuts: [
-      "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1559599101-f09722fb4948?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=400&q=80"
-    ]
-  },
-  {
-    id: "diego",
-    name: "Diego Ramirez",
-    specialty: "Senior Master Barber",
-    years: 18,
-    rating: 5.0,
-    reviews: 642,
-    price: 55,
-    status: "open",
-    statusText: "Open Today",
-    bio: "Eighteen years. The barber other barbers come to. Diego mentors the team and still runs his own chair five days a week.",
-    photo: "https://images.unsplash.com/photo-1463453091185-61582044d556?auto=format&fit=crop&w=900&q=85",
-    cuts: [
-      "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1562004760-aceed7bb0fe3?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1509695507497-903c140c43b0?auto=format&fit=crop&w=400&q=80"
-    ]
   }
 ];
+
+/* Build a tel: link from a US phone string like "(407) 242-3301" */
+function telLink(phone){
+  return '+1' + (phone || '').replace(/\D/g,'');
+}
 
 /* Render barber cards */
 const grid = document.getElementById('barbersGrid');
@@ -264,6 +229,16 @@ function renderFeatured(b){
         </div>
         <p class="featured-bio">${b.bio}</p>
         ${b.tags ? `<div class="featured-tags">${b.tags.map(t=>`<span>${t}</span>`).join('')}</div>` : ''}
+        <div class="barber-contact">
+          <a href="tel:${telLink(b.phone)}" class="barber-phone" aria-label="Call ${b.name.split(' ')[0]}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+            ${b.phone}
+          </a>
+          <a href="https://instagram.com/${b.instagram}" target="_blank" rel="noopener" class="barber-ig" aria-label="${b.name.split(' ')[0]} on Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            @${b.instagram}
+          </a>
+        </div>
         <button class="barber-book featured-book" data-book="${b.id}" aria-label="Book with ${b.name}">
           Book with ${b.name.split(' ')[0]}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
@@ -303,6 +278,16 @@ function renderStandard(b){
       <p class="barber-bio">${b.bio}</p>
       <div class="portfolio" aria-label="Recent work">
         ${b.cuts.slice(0,4).map(c => `<div class="shot"><img src="${c}" alt="Recent cut by ${b.name.split(' ')[0]}" loading="lazy"/></div>`).join('')}
+      </div>
+      <div class="barber-contact">
+        <a href="tel:${telLink(b.phone)}" class="barber-phone" aria-label="Call ${b.name.split(' ')[0]}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+          ${b.phone}
+        </a>
+        <a href="https://instagram.com/${b.instagram}" target="_blank" rel="noopener" class="barber-ig" aria-label="${b.name.split(' ')[0]} on Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          @${b.instagram}
+        </a>
       </div>
       <div class="barber-foot">
         <div class="barber-price">From<strong>$${b.price}</strong></div>
