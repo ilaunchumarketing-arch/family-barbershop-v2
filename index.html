@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=12" />
+<link rel="stylesheet" href="styles.css?v=15" />
 </head>
 <body>
 
@@ -279,6 +279,15 @@
   </div>
 </footer>
 
+<!-- BARBER PROFILE MODAL -->
+<div class="modal" id="profileModal" aria-hidden="true">
+  <div class="modal-backdrop" data-profile-close></div>
+  <div class="modal-panel profile-panel" role="dialog" aria-modal="true" aria-label="Barber profile">
+    <button class="modal-close" data-profile-close aria-label="Close">×</button>
+    <div class="profile-scroll" id="profileBody"></div>
+  </div>
+</div>
+
 <!-- BOOKING MODAL -->
 <div class="modal" id="bookModal" aria-hidden="true">
   <div class="modal-backdrop" data-close></div>
@@ -292,49 +301,8 @@
         <p id="mSpec" class="m-spec"></p>
       </div>
     </div>
-    <form class="booking-form" id="bookingForm">
-      <label>Service
-        <select name="service" required>
-          <option>Classic Haircut — $25</option>
-          <option selected>Skin Fade + Beard — $45</option>
-          <option>Full Grooming — $65</option>
-          <option>Hot Towel Shave — $35</option>
-          <option>Hair Design / Lineup — $30</option>
-          <option>Kids Cut — $18</option>
-        </select>
-      </label>
-      <div class="row-2">
-        <label>Date
-          <input type="date" name="date" required />
-        </label>
-        <label>Time
-          <select name="time" required>
-            <option>9:00 AM</option><option>10:00 AM</option><option>11:30 AM</option>
-            <option selected>1:00 PM</option><option>2:15 PM</option><option>3:30 PM</option>
-            <option>4:45 PM</option><option>6:00 PM</option>
-          </select>
-        </label>
-      </div>
-      <div class="row-2">
-        <label>Your Name
-          <input type="text" name="name" placeholder="Full name" required />
-        </label>
-        <label>Phone
-          <input type="tel" name="phone" placeholder="(407) 555-0100" required />
-        </label>
-      </div>
-      <label>Notes (optional)
-        <textarea name="notes" rows="2" placeholder="Length preference, styling notes..."></textarea>
-      </label>
-      <button type="submit" class="btn btn-primary btn-block">Confirm Appointment</button>
-      <p class="tiny center">Demo — no real appointment is created.</p>
-    </form>
-    <div class="booking-success" id="bookSuccess">
-      <div class="ok">✓</div>
-      <h3>You're booked.</h3>
-      <p id="okMsg"></p>
-      <button class="btn btn-ghost" data-close>Done</button>
-    </div>
+    <div class="book-embed" id="bookEmbed" aria-live="polite"></div>
+    <a class="book-newtab" id="bookNewTab" target="_blank" rel="noopener">Trouble loading? Open booking in a new tab →</a>
   </div>
 </div>
 
@@ -350,6 +318,7 @@
   <div class="lb-hint" aria-hidden="true">Scroll / pinch to zoom · &larr; &rarr; to navigate</div>
 </div>
 
-<script src="app.js?v=14"></script>
+<script src="https://api.leadconnectorhq.com/js/form_embed.js" type="text/javascript"></script>
+<script src="app.js?v=21"></script>
 </body>
 </html>

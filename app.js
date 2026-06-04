@@ -3,8 +3,9 @@
 const BARBERS = [
   {
     id: "elvin",
+    calendarUrl: "https://api.leadconnectorhq.com/widget/booking/t4RNoRPtemFXfWvGvNg2",
     name: "Elvin Rodriguez",
-    specialty: "Master Barber",
+    specialty: "Skin Fades & Designs",
     years: 21,
     rating: 5.0,
     reviews: 612,
@@ -30,8 +31,10 @@ const BARBERS = [
   },
   {
     id: "bebo",
+    calendarUrl: "https://api.leadconnectorhq.com/widget/booking/st1sxqMHG53Lu5qAh0mK",
     name: "Bebo",
-    specialty: "Master Barber",
+    specialty: "Precision Cuts & Fades",
+    featured: true,
     years: 10,
     rating: 5.0,
     reviews: 120,
@@ -50,30 +53,11 @@ const BARBERS = [
     ]
   },
   {
-    id: "jonathan",
-    name: "Jonathan",
-    specialty: "Master Barber",
-    years: 12,
-    rating: 4.9,
-    reviews: 287,
-    price: 45,
-    status: "open",
-    statusText: "Open Today",
-    phone: "(407) 837-2057",
-    instagram: "family.barbershop",
-    bio: "Twelve years on the clippers. Jonathan built his reputation on flawless skin fades and a chair-side manner that keeps regulars driving in from three counties.",
-    photo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=85",
-    cuts: [
-      "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=400&q=80"
-    ]
-  },
-  {
-    id: "joshua",
-    name: "Joshua",
+    id: "peter",
+    calendarUrl: "https://api.leadconnectorhq.com/widget/booking/BkxkLoOgz8ajsgvsmClo",
+    name: "Peter",
     specialty: "Beard & Style Expert",
+    featured: true,
     years: 10,
     rating: 4.9,
     reviews: 356,
@@ -81,9 +65,9 @@ const BARBERS = [
     status: "open",
     statusText: "Open Today",
     phone: "(407) 989-9306",
-    instagram: "josh_the.barber",
-    bio: "Ten years and counting. Joshua turns scruff into sculpture — beards, mustaches, and full-face grooming with a straight razor finish.",
-    photo: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=900&q=85",
+    instagram: "family.barbershop",
+    bio: "Ten years and counting. Peter turns scruff into sculpture — beards, mustaches, and full-face grooming with a straight razor finish.",
+    photo: "img/peter_profile.jpg",
     cuts: [
       "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1500048993953-d23a436266cf?auto=format&fit=crop&w=400&q=80",
@@ -93,8 +77,10 @@ const BARBERS = [
   },
   {
     id: "kelvo",
+    calendarUrl: "https://api.leadconnectorhq.com/widget/booking/2OVzl5S1rmi6DiLh6EKR",
     name: "Kelvo",
     specialty: "Design & Lineup Pro",
+    featured: true,
     years: 7,
     rating: 4.9,
     reviews: 198,
@@ -104,7 +90,7 @@ const BARBERS = [
     phone: "(321) 217-1567",
     instagram: "family.barbershop",
     bio: "If you want a logo, a part, or a freehand design in your fade — Kelvo is the artist. Seven years of clean lines and steady hands.",
-    photo: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=900&q=85",
+    photo: "img/kelvo_profile.jpg",
     cuts: [
       "https://images.unsplash.com/photo-1583195764036-6dc248ac07d9?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1591370874773-6702e8f12fd8?auto=format&fit=crop&w=400&q=80",
@@ -114,8 +100,10 @@ const BARBERS = [
   },
   {
     id: "rafy",
+    calendarUrl: "https://api.leadconnectorhq.com/widget/booking/c2N9iE08nlfTg96bn3oG",
     name: "Rafy",
     specialty: "Texture Specialist",
+    featured: true,
     years: 9,
     rating: 4.8,
     reviews: 241,
@@ -125,7 +113,7 @@ const BARBERS = [
     phone: "(407) 319-7849",
     instagram: "dr.cerquillo",
     bio: "Nine years working with every hair type — curls, waves, coarse, fine. Rafy cuts to your texture, not against it.",
-    photo: "https://images.unsplash.com/photo-1534330207526-8e81f10ec6fc?auto=format&fit=crop&w=900&q=85",
+    photo: "img/rafy_profile.jpg",
     cuts: [
       "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1596728325488-58c87691e9af?auto=format&fit=crop&w=400&q=80",
@@ -135,8 +123,10 @@ const BARBERS = [
   },
   {
     id: "jose",
+    calendarUrl: "https://api.leadconnectorhq.com/widget/booking/RoNKxA9hOBPZKUrrBGa7",
     name: "Jose",
     specialty: "Classic Cuts Expert",
+    featured: true,
     years: 15,
     rating: 5.0,
     reviews: 520,
@@ -146,7 +136,7 @@ const BARBERS = [
     phone: "(786) 234-6663",
     instagram: "jr_dahalloffamer",
     bio: "Fifteen years in the trade. Jose handles the classics — pompadours, side parts, scissor cuts — like the old-school masters who taught him.",
-    photo: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=900&q=85",
+    photo: "img/jose_profile.jpg",
     cuts: [
       "https://images.unsplash.com/photo-1542327897-d73f4005b533?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?auto=format&fit=crop&w=400&q=80",
@@ -155,30 +145,11 @@ const BARBERS = [
     ]
   },
   {
-    id: "ricardo",
-    name: "Ricardo",
-    specialty: "Kids & Family Cuts",
-    years: 6,
-    rating: 4.9,
-    reviews: 312,
-    price: 25,
-    status: "open",
-    statusText: "Open Today",
-    phone: "(787) 925-7775",
-    instagram: "family.barbershop",
-    bio: "Six years and a magic touch with kids. Patient, fun, and quick — Ricardo makes the first haircut a tradition, not a fight.",
-    photo: "https://images.unsplash.com/photo-1507081323647-4d250478b919?auto=format&fit=crop&w=900&q=85",
-    cuts: [
-      "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=400&q=80"
-    ]
-  },
-  {
     id: "yamil",
+    calendarUrl: "https://api.leadconnectorhq.com/widget/booking/LgjCdxwJFgV6O0Ruo24w",
     name: "Yamil",
     specialty: "Curly & Natural Hair",
+    featured: true,
     years: 8,
     rating: 4.9,
     reviews: 267,
@@ -188,7 +159,7 @@ const BARBERS = [
     phone: "(407) 432-9548",
     instagram: "family.barbershop",
     bio: "Eight years specializing in curly and natural textures. Yamil cuts dry, shapes the curl pattern, and finishes with a sponge twist if you want it.",
-    photo: "https://images.unsplash.com/photo-1531384441138-2736e62e0919?auto=format&fit=crop&w=900&q=85",
+    photo: "img/yamil_profile.jpg",
     cuts: [
       "https://images.unsplash.com/photo-1615109398623-88346a601842?auto=format&fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=400&q=80",
@@ -203,32 +174,58 @@ function telLink(phone){
   return '+1' + (phone || '').replace(/\D/g,'');
 }
 
-/* Render barber cards */
+/* Render barber tiles — tap a tile to open that barber's profile */
 const grid = document.getElementById('barbersGrid');
 
-function renderFeatured(b){
+function masterBadge(){
+  return `<span class="b-tile-master"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M12 2l2.6 6.6L22 9.3l-5.5 4.8L18.2 22 12 18.3 5.8 22l1.7-7.9L2 9.3l7.4-.7L12 2z"/></svg> Master Barber</span>`;
+}
+
+function renderTile(b){
   return `
-  <article class="barber-card featured">
-    <span class="featured-ribbon">
-      <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M12 2l2.6 6.6L22 9.3l-5.5 4.8L18.2 22 12 18.3 5.8 22l1.7-7.9L2 9.3l7.4-.7L12 2z"/></svg>
-      Master Barber
+  <button class="b-tile${b.featured ? ' is-master' : ''}" data-profile="${b.id}" aria-label="View ${b.name}'s profile and book">
+    <div class="b-tile-photo">
+      <span class="status ${b.status}">${b.statusText}</span>
+      ${b.featured ? masterBadge() : ''}
+      <img src="${b.photo}" alt="${b.name}, ${b.specialty}" loading="lazy" />
+      <div class="b-tile-info">
+        <div class="b-tile-id">
+          <h3>${b.name}</h3>
+          <span class="b-tile-spec">${b.specialty}</span>
+        </div>
+        <span class="b-tile-rate"><span class="star">★</span>${b.rating.toFixed(1)}</span>
+      </div>
+    </div>
+    <span class="b-tile-cta">View Profile
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
     </span>
-    <div class="featured-top">
-      <div class="featured-photo">
+  </button>`;
+}
+
+grid.innerHTML = BARBERS.map(renderTile).join('');
+
+/* ============ BARBER PROFILE MODAL ============ */
+const profileModal = document.getElementById('profileModal');
+const profileBody  = document.getElementById('profileBody');
+
+function buildProfileHTML(b){
+  return `
+    <div class="bp-top">
+      <div class="bp-photo">
         <span class="status ${b.status}">${b.statusText}</span>
+        ${b.featured ? masterBadge() : ''}
         <img src="${b.photo}" alt="${b.name}, ${b.specialty}" />
       </div>
-      <div class="featured-info">
-        <span class="featured-eyebrow"><span class="dot"></span> ${b.years} años de experiencia</span>
-        <h3 class="featured-name">${b.name}</h3>
-        <div class="featured-specialty">${b.specialty}</div>
-        <div class="featured-stats">
-          <div class="featured-stat"><span class="star">★</span><strong>${b.rating.toFixed(1)}</strong><small>${b.reviews} reviews</small></div>
-          <div class="featured-sep">·</div>
-          <div class="featured-stat featured-stat-price">From<strong>$${b.price}</strong></div>
+      <div class="bp-info">
+        <span class="bp-eyebrow"><span class="dot"></span> ${b.years} years experience</span>
+        <h3 class="bp-name">${b.name}</h3>
+        <div class="bp-spec">${b.specialty}</div>
+        <div class="bp-stats">
+          <div class="bp-stat"><span class="star">★</span><strong>${b.rating.toFixed(1)}</strong><small>${b.reviews} reviews</small></div>
+          <span class="bp-sep">·</span>
+          <div class="bp-stat bp-price">From<strong>$${b.price}</strong></div>
         </div>
-        <p class="featured-bio">${b.bio}</p>
-        ${b.tags ? `<div class="featured-tags">${b.tags.map(t=>`<span>${t}</span>`).join('')}</div>` : ''}
+        <p class="bp-bio">${b.bio}</p>
         <div class="barber-contact">
           <a href="tel:${telLink(b.phone)}" class="barber-phone" aria-label="Call ${b.name.split(' ')[0]}">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
@@ -239,133 +236,137 @@ function renderFeatured(b){
             @${b.instagram}
           </a>
         </div>
-        <button class="barber-book featured-book" data-book="${b.id}" aria-label="Book with ${b.name}">
+        <button class="barber-book bp-book" data-book="${b.id}" aria-label="Book with ${b.name}">
           Book with ${b.name.split(' ')[0]}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </button>
       </div>
     </div>
-    <div class="featured-gallery-head">
-      <h4>El trabajo de ${b.name.split(' ')[0]}</h4>
-      <span>${b.cuts.length} cortes recientes</span>
+    ${hasRealCuts(b) ? `
+    <div class="bp-gallery-head">
+      <h4>${b.name.split(' ')[0]}'s Work</h4>
+      <span>${b.cuts.length} recent cuts</span>
     </div>
-    <div class="featured-gallery">
-      ${b.cuts.map(c => `<div class="fg-shot"><img src="${c}" alt="Trabajo de ${b.name}" loading="lazy"/></div>`).join('')}
-    </div>
-  </article>`;
+    <div class="bp-gallery">
+      ${b.cuts.map(c => `<div class="bp-shot"><img src="${c}" alt="Recent cut by ${b.name}" loading="lazy"/></div>`).join('')}
+    </div>` : ''}`;
 }
 
-function renderStandard(b){
-  return `
-  <article class="barber-card">
-    <div class="barber-photo">
-      <span class="status ${b.status}">${b.statusText}</span>
-      <img src="${b.photo}" alt="${b.name}, ${b.specialty}" loading="lazy" />
-      <div class="barber-overlay">
-        <div class="barber-overlay-name">
-          <h3>${b.name}</h3>
-          <div class="barber-overlay-meta">${b.specialty} · ${b.years} Yrs</div>
-        </div>
-        <div class="barber-rating" aria-label="Rating ${b.rating} out of 5">
-          <div>
-            <span class="star">★</span> ${b.rating.toFixed(1)}
-            <small>${b.reviews} reviews</small>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="barber-body">
-      <p class="barber-bio">${b.bio}</p>
-      <div class="portfolio" aria-label="Recent work">
-        ${b.cuts.slice(0,4).map(c => `<div class="shot"><img src="${c}" alt="Recent cut by ${b.name.split(' ')[0]}" loading="lazy"/></div>`).join('')}
-      </div>
-      <div class="barber-contact">
-        <a href="tel:${telLink(b.phone)}" class="barber-phone" aria-label="Call ${b.name.split(' ')[0]}">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
-          ${b.phone}
-        </a>
-        <a href="https://instagram.com/${b.instagram}" target="_blank" rel="noopener" class="barber-ig" aria-label="${b.name.split(' ')[0]} on Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-          @${b.instagram}
-        </a>
-      </div>
-      <div class="barber-foot">
-        <div class="barber-price">From<strong>$${b.price}</strong></div>
-        <button class="barber-book" data-book="${b.id}" aria-label="Book with ${b.name}">
-          Book with ${b.name.split(' ')[0]}
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </button>
-      </div>
-    </div>
-  </article>`;
+/* Only show the work gallery once a barber has real (local) cut photos —
+   never show stock images as a barber's portfolio. */
+function hasRealCuts(b){
+  return Array.isArray(b.cuts) && b.cuts.length > 0 && b.cuts.every(c => c.startsWith('img/'));
 }
 
-grid.innerHTML = BARBERS.map(b => b.featured ? renderFeatured(b) : renderStandard(b)).join('');
+function bindProfileGallery(){
+  const imgs = Array.from(profileBody.querySelectorAll('.bp-gallery .bp-shot img'));
+  imgs.forEach((img, i) => {
+    img.addEventListener('click', () => {
+      lbList = imgs.map(im => ({ src: im.currentSrc || im.src, alt: im.alt }));
+      lbOpen(i);
+    });
+  });
+}
 
-/* Gallery strip — curated cuts */
+function openProfile(id){
+  const b = BARBERS.find(x => x.id === id);
+  if(!b) return;
+  profileBody.innerHTML = buildProfileHTML(b);
+  profileBody.scrollTop = 0;
+  profileModal.classList.add('open');
+  profileModal.setAttribute('aria-hidden','false');
+  document.body.style.overflow = 'hidden';
+  bindProfileGallery();
+}
+function closeProfile(){
+  profileModal.classList.remove('open');
+  profileModal.setAttribute('aria-hidden','true');
+  if(!modal.classList.contains('open')) document.body.style.overflow = '';
+}
+
+/* Gallery strip — real cuts from the shop */
 const GALLERY = [
-  "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=700&q=85",
-  "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=500&q=80",
-  "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=500&q=80",
-  "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=500&q=80",
-  "https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?auto=format&fit=crop&w=500&q=80",
-  "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=700&q=85",
-  "https://images.unsplash.com/photo-1559599101-f09722fb4948?auto=format&fit=crop&w=500&q=80",
-  "https://images.unsplash.com/photo-1542327897-d73f4005b533?auto=format&fit=crop&w=500&q=80",
-  "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=500&q=80",
-  "https://images.unsplash.com/photo-1509695507497-903c140c43b0?auto=format&fit=crop&w=500&q=80"
+  "img/work_1.jpg",
+  "img/work_2.jpg",
+  "img/work_3.jpg",
+  "img/work_4.jpg",
+  "img/work_5.jpg",
+  "img/work_6.jpg"
 ];
-document.getElementById('galleryGrid').innerHTML =
-  GALLERY.map((g,i) => `<div class="g"><img src="${g}" alt="Recent cut from Family Barbershop" loading="lazy"/></div>`).join('');
+const galleryGrid = document.getElementById('galleryGrid');
+galleryGrid.innerHTML =
+  GALLERY.map((g,i) => `<div class="g" role="button" tabindex="0" aria-label="Open photo ${i+1} of ${GALLERY.length} full screen"><img src="${g}" alt="Recent cut from Family Barbershop" loading="lazy"/></div>`).join('');
 
-/* ============ MODAL BOOKING ============ */
+/* Tap any gallery photo to open it in the full-screen lightbox (swipe / zoom / arrows) */
+(function bindGalleryLightbox(){
+  const tiles = Array.from(galleryGrid.querySelectorAll('.g'));
+  const openAt = (i) => {
+    lbList = tiles.map(t => { const im = t.querySelector('img'); return { src: im.currentSrc || im.src, alt: im.alt }; });
+    lbOpen(i);
+  };
+  tiles.forEach((t,i) => {
+    t.addEventListener('click', () => openAt(i));
+    t.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openAt(i); }
+    });
+  });
+})();
+
+/* ============ MODAL BOOKING — live GHL calendar embed ============ */
 const modal = document.getElementById('bookModal');
-const bookForm = document.getElementById('bookingForm');
-const bookSuccess = document.getElementById('bookSuccess');
+const bookEmbed = document.getElementById('bookEmbed');
+const bookNewTab = document.getElementById('bookNewTab');
 const mAvatar = document.getElementById('mAvatar');
 const bookTitle = document.getElementById('bookTitle');
 const mSpec = document.getElementById('mSpec');
-const okMsg = document.getElementById('okMsg');
 
+/* Embed the barber's real GoHighLevel booking widget inside the dark modal.
+   form_embed.js (loaded in <head>) auto-resizes the iframe by its id. */
 function openModal(barberId){
   const b = BARBERS.find(x => x.id === barberId);
   if(!b) return;
   mAvatar.style.backgroundImage = `url('${b.photo}')`;
   bookTitle.textContent = b.name;
   mSpec.textContent = `${b.specialty} · ${b.years} yrs · ★ ${b.rating.toFixed(1)}`;
-  bookForm.classList.remove('hide');
-  bookSuccess.classList.remove('show');
+
+  if(b.calendarUrl){
+    const calId = b.calendarUrl.split('/').pop();
+    bookEmbed.innerHTML =
+      `<iframe src="${b.calendarUrl}" class="ghl-book-frame" id="${calId}_booking" `
+      + `scrolling="no" title="Book with ${b.name}" loading="lazy"></iframe>`;
+    bookNewTab.href = b.calendarUrl;
+    bookNewTab.style.display = '';
+  } else {
+    bookEmbed.innerHTML =
+      `<p class="tiny center" style="padding:40px 0">Online booking for ${b.name} is coming soon. `
+      + `Call <a href="tel:${telLink(b.phone)}" style="color:var(--red)">${b.phone}</a> to book.</p>`;
+    bookNewTab.style.display = 'none';
+  }
+
   modal.classList.add('open');
   modal.setAttribute('aria-hidden','false');
   document.body.style.overflow='hidden';
-  const d = new Date(); d.setDate(d.getDate()+1);
-  bookForm.querySelector('[name=date]').value = d.toISOString().slice(0,10);
-  bookForm.dataset.barber = b.name;
 }
 function closeModal(){
   modal.classList.remove('open');
   modal.setAttribute('aria-hidden','true');
   document.body.style.overflow='';
+  bookEmbed.innerHTML = ''; // unload iframe so it reloads fresh next open
 }
 document.addEventListener('click', (e) => {
+  const prof = e.target.closest('[data-profile]');
+  if(prof){ openProfile(prof.getAttribute('data-profile')); return; }
   const bk = e.target.closest('[data-book]');
-  if(bk){ openModal(bk.getAttribute('data-book')); }
+  if(bk){
+    closeProfile();
+    openModal(bk.getAttribute('data-book'));
+    return;
+  }
+  if(e.target.closest('[data-profile-close]')){ closeProfile(); return; }
   if(e.target.matches('[data-close]')){ closeModal(); }
 });
 document.addEventListener('keydown', (e) => {
-  if(e.key === 'Escape') closeModal();
-});
-
-bookForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const fd = new FormData(bookForm);
-  const service = fd.get('service');
-  const date = fd.get('date');
-  const time = fd.get('time');
-  const name = fd.get('name');
-  okMsg.innerHTML = `Thanks <strong>${name}</strong>. Your appointment with <strong>${bookForm.dataset.barber}</strong> for <strong>${service}</strong> is set for <strong>${date} at ${time}</strong>. A confirmation text is on the way.`;
-  bookForm.classList.add('hide');
-  bookSuccess.classList.add('show');
+  if(e.key === 'Escape'){ closeModal(); closeProfile(); }
 });
 
 /* ============ LIGHTBOX (Elvin's work gallery) ============ */
@@ -421,15 +422,8 @@ function lbStep(d){
   lbLoad();
 }
 
-// Wire every featured-gallery image into one combined lightbox list so
-// navigation flows across all featured barbers' photos.
-const featuredImgs = Array.from(document.querySelectorAll('.featured-gallery .fg-shot img'));
-featuredImgs.forEach((img, i) => {
-  img.addEventListener('click', () => {
-    lbList = featuredImgs.map(im => ({ src: im.currentSrc || im.src, alt: im.alt }));
-    lbOpen(i);
-  });
-});
+// Profile-gallery images are wired into the lightbox dynamically when a
+// profile opens — see bindProfileGallery().
 
 // Click handling: backdrop closes, image area doesn't
 lb.addEventListener('click', (e) => {
