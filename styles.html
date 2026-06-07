@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Haircut Styles — Family Barbershop, Kissimmee</title>
+<meta name="description" content="Browse 20+ popular men's haircut styles — fades, classics, textured cuts, beards and kids. See the cut, read what it suits, then book the look with your barber at Family Barbershop in Kissimmee, FL." />
+<meta name="theme-color" content="#0A0A0C" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=16" />
+</head>
+<body class="styles-page">
+
+<!-- NAV -->
+<header class="nav scrolled" id="nav">
+  <div class="nav-inner">
+    <a href="index.html#top" class="brand" aria-label="Family Barbershop home">
+      <span class="brand-logo">
+        <img src="img/logo.png" alt="Family Barbershop" />
+      </span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#barbers">Barbers</a>
+      <a href="index.html#services">Services</a>
+      <a href="styles.html" aria-current="page" class="is-active">Styles</a>
+      <a href="index.html#gallery">Work</a>
+      <a href="index.html#visit">Visit</a>
+    </nav>
+    <button class="btn btn-primary btn-sm" data-open-book type="button">Book Now</button>
+  </div>
+</header>
+
+<!-- STYLES HERO -->
+<section class="styles-hero" id="top">
+  <div class="container styles-hero-inner">
+    <span class="eyebrow"><span class="dot"></span> The Style Guide</span>
+    <h1 class="display">
+      Find your<br/>
+      next <em>cut.</em>
+    </h1>
+    <p class="lead">A barber works fastest when you can point at the look. Browse the most-requested men's styles, learn what suits your hair and face — then book that exact cut with your barber.</p>
+    <div class="styles-hero-cta">
+      <button class="btn btn-primary" data-open-book type="button">
+        Book Your Chair
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </button>
+      <a href="index.html#barbers" class="btn btn-ghost">Meet the Barbers</a>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filters" id="filters" aria-label="Filter haircut styles">
+  <div class="container filters-inner">
+    <div class="chips" id="chips" role="tablist" aria-label="Style categories"></div>
+    <span class="filters-count" id="filterCount" aria-live="polite"></span>
+  </div>
+</div>
+
+<!-- STYLES GRID -->
+<section class="section styles-section">
+  <div class="container">
+    <div class="styles-grid" id="stylesGrid"></div>
+    <p class="styles-empty" id="stylesEmpty" hidden>No styles in this category yet.</p>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="styles-band">
+  <div class="container styles-band-inner">
+    <div>
+      <span class="eyebrow"><span class="dot"></span> Found your look?</span>
+      <h2>Bring the<br/><em>reference.</em></h2>
+      <p class="sub">Screenshot the style you want, pick your barber, and lock in your chair — Tue–Sat, 8 AM–5:30 PM.</p>
+    </div>
+    <button class="btn btn-primary" data-open-book type="button">
+      Book a Cut
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-cap">Family <em>Barbershop</em></div>
+  </div>
+  <div class="footer-inner">
+    <a href="index.html#top" class="brand">
+      <span class="brand-logo">
+        <img src="img/logo.png" alt="Family Barbershop" />
+      </span>
+    </a>
+    <p>© 2026 Family Barbershop · All rights reserved.</p>
+    <p class="tiny">Site by <strong>iLaunch U</strong></p>
+  </div>
+</footer>
+
+<!-- STYLE DETAIL SHEET -->
+<div class="modal style-modal" id="styleModal" aria-hidden="true">
+  <div class="modal-backdrop" data-style-close></div>
+  <div class="modal-panel style-panel" role="dialog" aria-modal="true" aria-label="Haircut style detail">
+    <button class="modal-close" data-style-close aria-label="Close">×</button>
+    <div class="style-detail" id="styleDetail"></div>
+  </div>
+</div>
+
+<!-- BOOKING MODAL (barber picker → live GHL calendar) -->
+<div class="modal" id="bookModal" aria-hidden="true">
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="bookTitle">
+    <button class="modal-close" data-close aria-label="Close">×</button>
+    <div class="modal-head">
+      <div class="m-avatar" id="mAvatar" aria-hidden="true"></div>
+      <div>
+        <span class="eyebrow"><span class="dot"></span> Book A Cut</span>
+        <h3 id="bookTitle">Pick your barber</h3>
+        <p id="mSpec" class="m-spec">7 master barbers · same-day slots</p>
+      </div>
+    </div>
+    <!-- step 1: choose barber -->
+    <div class="barber-pick" id="barberPick" aria-label="Choose your barber"></div>
+    <!-- step 2: live calendar -->
+    <button class="book-back" id="bookBack" type="button" hidden>‹ Choose a different barber</button>
+    <div class="book-embed" id="bookEmbed" aria-live="polite"></div>
+    <a class="book-newtab" id="bookNewTab" target="_blank" rel="noopener" style="display:none">Trouble loading? Open booking in a new tab →</a>
+  </div>
+</div>
+
+<script src="https://api.leadconnectorhq.com/js/form_embed.js" type="text/javascript"></script>
+<script src="barbers-data.js?v=2"></script>
+<script src="styles.js?v=4"></script>
+</body>
+</html>
