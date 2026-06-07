@@ -116,14 +116,14 @@ window.FB_BARBERS = [
     bio: "Nine years working with every hair type — curls, waves, coarse, fine. Rafy cuts to your texture, not against it.",
     photo: "img/rafy_profile.jpg",
     cuts: [
-      "img/rafy_work_1.jpg",
-      "img/rafy_work_2.jpg",
-      "img/rafy_work_3.jpg",
-      "img/rafy_work_4.jpg",
-      "img/rafy_work_5.jpg",
-      "img/rafy_work_6.jpg",
-      "img/rafy_work_7.jpg",
-      "img/rafy_work_8.jpg"
+      "img/rafy_work_1.jpg?v=2",
+      "img/rafy_work_2.jpg?v=2",
+      "img/rafy_work_3.jpg?v=2",
+      "img/rafy_work_4.jpg?v=2",
+      "img/rafy_work_5.jpg?v=2",
+      "img/rafy_work_6.jpg?v=2",
+      "img/rafy_work_7.jpg?v=2",
+      "img/rafy_work_8.jpg?v=2"
     ]
   },
   {
