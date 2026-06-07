@@ -1517,6 +1517,15 @@ h3{
   backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
 }
 .b-tile-master svg{color:var(--gold)}
+/* Master-barber credential — sits above the name in the bottom strip so it never covers the face */
+.b-tile-cred{
+  display:inline-flex; align-items:center; gap:5px;
+  margin-bottom:7px; white-space:nowrap;
+  font-family:var(--ff-body);
+  font-size:8.5px; font-weight:800; letter-spacing:.13em; text-transform:uppercase; color:var(--gold);
+  text-shadow:0 1px 6px rgba(0,0,0,.7);
+}
+.b-tile-cred svg{ flex:none; filter:drop-shadow(0 1px 4px rgba(0,0,0,.6)); }
 .b-tile-info{
   position:absolute; left:16px; right:16px; bottom:14px; z-index:2;
   display:flex; align-items:flex-end; justify-content:space-between; gap:10px;

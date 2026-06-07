@@ -20,10 +20,10 @@ function renderTile(b){
   <button class="b-tile${b.featured ? ' is-master' : ''}" data-profile="${b.id}" aria-label="View ${b.name}'s profile and book">
     <div class="b-tile-photo">
       <span class="status ${b.status}">${b.statusText}</span>
-      ${b.featured ? masterBadge() : ''}
       <img src="${b.photo}" alt="${b.name}, ${b.specialty}" loading="lazy" />
       <div class="b-tile-info">
         <div class="b-tile-id">
+          ${b.featured ? `<span class="b-tile-cred"><svg viewBox="0 0 24 24" fill="currentColor" width="11" height="11"><path d="M12 2l2.6 6.6L22 9.3l-5.5 4.8L18.2 22 12 18.3 5.8 22l1.7-7.9L2 9.3l7.4-.7L12 2z"/></svg> Master Barber</span>` : ''}
           <h3>${b.name}</h3>
           <span class="b-tile-spec">${b.specialty}</span>
         </div>
