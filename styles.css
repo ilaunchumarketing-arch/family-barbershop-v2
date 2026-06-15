@@ -552,6 +552,32 @@ h3{
   letter-spacing:-0.01em;
   line-height:1;
 }
+.svc-from{
+  font-family:var(--ff-body);
+  font-weight:600;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:0.14em;
+  color:var(--muted);
+  vertical-align:middle;
+  margin-right:4px;
+}
+.svc-addons{
+  margin-top:36px;
+  font-family:var(--ff-body);
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.6;
+}
+.svc-addons span{
+  display:block;
+  font-weight:700;
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:0.2em;
+  color:var(--red);
+  margin-bottom:6px;
+}
 .svc-tag{
   display:inline-block;
   margin-left:10px;
@@ -1498,14 +1524,22 @@ h3{
 .b-tile-photo{ position:relative; aspect-ratio:4/5; overflow:hidden; background:var(--bg); }
 .b-tile-photo img{
   width:100%; height:100%;
-  object-fit:cover; object-position:center 12%;
+  object-fit:cover; object-position:center 16%;
   filter:saturate(1.03) contrast(1.03);
   transition:transform .8s var(--ease);
 }
 .b-tile:hover .b-tile-photo img{ transform:scale(1.05); }
+/* Per-barber focal point so each face/eyes sit clearly in frame */
+.b-tile[data-profile="elvin"] .b-tile-photo img{ object-position:center 16%; }
+.b-tile[data-profile="bebo"]  .b-tile-photo img{ object-position:center 18%; }
+.b-tile[data-profile="peter"] .b-tile-photo img{ object-position:center 18%; }
+.b-tile[data-profile="kelvo"] .b-tile-photo img{ object-position:center 20%; }
+.b-tile[data-profile="rafy"]  .b-tile-photo img{ object-position:center 15%; }
+.b-tile[data-profile="jose"]  .b-tile-photo img{ object-position:center 16%; }
+.b-tile[data-profile="yamil"] .b-tile-photo img{ object-position:center 7%; }
 .b-tile-photo::after{
   content:""; position:absolute; inset:0; pointer-events:none;
-  background:linear-gradient(to top, rgba(8,9,16,.94) 3%, rgba(8,9,16,.32) 40%, rgba(8,9,16,0) 62%);
+  background:linear-gradient(to top, rgba(8,9,16,.95) 4%, rgba(8,9,16,.5) 42%, rgba(8,9,16,0) 66%);
 }
 .b-tile-master{
   position:absolute; top:14px; right:14px; z-index:3;
@@ -1530,6 +1564,13 @@ h3{
   position:absolute; left:16px; right:16px; bottom:14px; z-index:2;
   display:flex; align-items:flex-end; justify-content:space-between; gap:10px;
 }
+.b-tile-id{ display:flex; flex-direction:column; align-items:flex-start; min-width:0; }
+/* Status pill moved OFF the photo onto the card body (own row above the CTA) so it never covers the face */
+.b-tile-statusbar{ display:flex; padding:11px 14px 0; }
+.b-tile-statusbar .status{
+  position:static; top:auto; left:auto; z-index:auto;
+  margin:0; padding:5px 10px; font-size:8.5px; letter-spacing:.14em;
+}
 .b-tile-id h3{ font-family:var(--ff-display); font-size:27px; line-height:.92; margin:0; }
 .b-tile-spec{
   display:block; margin-top:7px;
@@ -1546,7 +1587,7 @@ h3{
 .b-tile-rate .star{color:var(--gold)}
 .b-tile-cta{
   display:flex; align-items:center; justify-content:center; gap:8px;
-  height:46px;
+  height:46px; margin-top:11px;
   font-family:var(--ff-body); font-size:11px; font-weight:800; letter-spacing:.18em; text-transform:uppercase;
   color:var(--text-2);
   border-top:1px solid var(--line);
