@@ -5,6 +5,7 @@ window.FB_BARBERS = [
   {
     id: "elvin",
     calendarUrl: "https://api.leadconnectorhq.com/widget/booking/t4RNoRPtemFXfWvGvNg2",
+    booksyUrl: "https://booksy.com/en-us/1741569_elvin-cuts_barber-shop_134766_kissimmee?utm_source=familybarbershop-website&utm_medium=book_button",
     name: "Elvin Rodriguez",
     specialty: "Skin Fades & Designs",
     years: 21,

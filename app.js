@@ -192,6 +192,13 @@ document.addEventListener('click', (e) => {
   if(prof){ openProfile(prof.getAttribute('data-profile')); return; }
   const bk = e.target.closest('[data-book]');
   if(bk){
+    const b = BARBERS.find(x => x.id === bk.getAttribute('data-book'));
+    // Barbers who run their own Booksy book their chair there (opens Booksy);
+    // their appointments still flow back into GHL via the Booksy→Google→GHL hook.
+    if(b && b.booksyUrl){
+      window.open(b.booksyUrl, '_blank', 'noopener');
+      return;
+    }
     closeProfile();
     openModal(bk.getAttribute('data-book'));
     return;
