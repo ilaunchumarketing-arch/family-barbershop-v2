@@ -19,7 +19,6 @@ function renderTile(b){
   return `
   <button class="b-tile${b.featured ? ' is-master' : ''}" data-profile="${b.id}" aria-label="View ${b.name}'s profile and book">
     <div class="b-tile-photo">
-      <span class="status ${b.status}">${b.statusText}</span>
       <img src="${b.photo}" alt="${b.name}, ${b.specialty}" loading="lazy" />
       <div class="b-tile-info">
         <div class="b-tile-id">
@@ -30,6 +29,7 @@ function renderTile(b){
         <span class="b-tile-rate"><span class="star">★</span>${b.rating.toFixed(1)}</span>
       </div>
     </div>
+    <div class="b-tile-statusbar"><span class="status ${b.status}">${b.statusText}</span></div>
     <span class="b-tile-cta">View Profile
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
     </span>
@@ -167,7 +167,7 @@ function openModal(barberId){
     const calId = b.calendarUrl.split('/').pop();
     bookEmbed.innerHTML =
       `<iframe src="${b.calendarUrl}" class="ghl-book-frame" id="${calId}_booking" `
-      + `scrolling="no" title="Book with ${b.name}" loading="lazy"></iframe>`;
+      + `scrolling="yes" title="Book with ${b.name}" loading="lazy"></iframe>`;
     bookNewTab.href = b.calendarUrl;
     bookNewTab.style.display = '';
   } else {

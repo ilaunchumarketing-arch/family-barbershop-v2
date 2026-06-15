@@ -1179,14 +1179,16 @@ h3{
 /* ============ LIVE GHL BOOKING EMBED ============ */
 #bookModal .modal-panel{max-width:640px}
 .book-embed{
-  min-height:640px;
+  height:min(640px, 72vh);
   border-radius:14px;
-  overflow:hidden;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
   background:#fff;
 }
 .ghl-book-frame{
   width:100%;
-  min-height:640px;
+  height:100%;
+  min-height:100%;
   border:none;
   display:block;
   background:#fff;
@@ -1202,6 +1204,10 @@ h3{
   text-underline-offset:3px;
 }
 .book-newtab:hover{color:var(--red)}
+@media(max-width:720px){
+  #bookModal .modal-panel{padding:20px; max-height:94vh}
+  .book-embed{height:74vh}
+}
 
 /* ============ FEATURED BARBER (dark v4 spotlight) ============ */
 .barber-card.featured{
