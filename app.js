@@ -199,6 +199,12 @@ document.addEventListener('click', (e) => {
       window.open(b.booksyUrl, '_blank', 'noopener');
       return;
     }
+    // Barbers who take bookings over WhatsApp (e.g. Ricardo) open a chat
+    // prefilled with a booking message instead of the GHL calendar.
+    if(b && b.whatsappUrl){
+      window.open(b.whatsappUrl, '_blank', 'noopener');
+      return;
+    }
     closeProfile();
     openModal(bk.getAttribute('data-book'));
     return;

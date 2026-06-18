@@ -57,6 +57,7 @@ window.FB_BARBERS = [
   {
     id: "peter",
     calendarUrl: "https://api.leadconnectorhq.com/widget/booking/BkxkLoOgz8ajsgvsmClo",
+    booksyUrl: "https://booksy.com/en-us/1744393_peterbarber_barber-shop_134766_kissimmee?utm_source=familybarbershop-website&utm_medium=book_button",
     name: "Peter",
     specialty: "Beard & Style Expert",
     featured: true,
@@ -153,6 +154,7 @@ window.FB_BARBERS = [
   {
     id: "yamil",
     calendarUrl: "https://api.leadconnectorhq.com/widget/booking/LgjCdxwJFgV6O0Ruo24w",
+    booksyUrl: "https://booksy.com/en-us/546865_yamill_barber-shop_134766_kissimmee?utm_source=familybarbershop-website&utm_medium=book_button",
     name: "Yamil",
     specialty: "Curly & Natural Hair",
     featured: true,
