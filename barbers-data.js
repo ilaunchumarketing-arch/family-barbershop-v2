@@ -104,6 +104,7 @@ window.FB_BARBERS = [
   {
     id: "rafy",
     calendarUrl: "https://api.leadconnectorhq.com/widget/booking/c2N9iE08nlfTg96bn3oG",
+    whatsappUrl: "https://wa.me/14073197849?text=Hola%20Rafy%2C%20quiero%20agendar%20una%20cita%20en%20Family%20Barbershop",
     name: "Rafy",
     specialty: "Texture Specialist",
     featured: true,
