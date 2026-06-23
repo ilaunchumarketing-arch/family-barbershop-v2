@@ -8,6 +8,39 @@ function telLink(phone){
   return '+1' + (phone || '').replace(/\D/g,'');
 }
 
+/* ============ META PIXEL + CAPI TRACKING ============ */
+/* Fires a standard event to BOTH the browser pixel and our server-side CAPI
+   relay (/api/capi), sharing ONE event_id so Meta de-duplicates them into a
+   single event. Wrapped in try/catch + fire-and-forget so a tracking hiccup
+   can never block or delay a booking. */
+const FB_PIXEL_ID = '1699302127751630';
+function _fbCookie(name){
+  const m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+  return m ? m.pop() : '';
+}
+function fbTrack(eventName, custom){
+  custom = custom || {};
+  const eventId = eventName.toLowerCase() + '_' + Date.now() + '_' + Math.random().toString(36).slice(2,10);
+  try { if(window.fbq) fbq('track', eventName, custom, { eventID: eventId }); } catch(e){}
+  try {
+    const tec = new URLSearchParams(location.search).get('test_event_code') || undefined;
+    fetch('/api/capi', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      keepalive: true,
+      body: JSON.stringify({
+        event_name: eventName,
+        event_id: eventId,
+        event_source_url: location.href,
+        custom_data: custom,
+        fbp: _fbCookie('_fbp'),
+        fbc: _fbCookie('_fbc'),
+        test_event_code: tec
+      })
+    }).catch(function(){});
+  } catch(e){}
+}
+
 /* Render barber tiles — tap a tile to open that barber's profile */
 const grid = document.getElementById('barbersGrid');
 
@@ -189,10 +222,23 @@ function closeModal(){
 }
 document.addEventListener('click', (e) => {
   const prof = e.target.closest('[data-profile]');
-  if(prof){ openProfile(prof.getAttribute('data-profile')); return; }
+  if(prof){
+    const pid = prof.getAttribute('data-profile');
+    const pb = BARBERS.find(x => x.id === pid);
+    fbTrack('ViewContent', { content_name: pb ? pb.name : pid, content_category: 'barber_profile' });
+    openProfile(pid);
+    return;
+  }
   const bk = e.target.closest('[data-book]');
   if(bk){
     const b = BARBERS.find(x => x.id === bk.getAttribute('data-book'));
+    // Count any tap on "Book with [Barber]" as a Lead (covers GHL, Booksy & WhatsApp).
+    fbTrack('Lead', {
+      content_name: b ? b.name : bk.getAttribute('data-book'),
+      content_category: 'appointment_booking',
+      value: (b && b.price) ? b.price : 25,
+      currency: 'USD'
+    });
     // Barbers who run their own Booksy book their chair there (opens Booksy);
     // their appointments still flow back into GHL via the Booksy→Google→GHL hook.
     if(b && b.booksyUrl){
