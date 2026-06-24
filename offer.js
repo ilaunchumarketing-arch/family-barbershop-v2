@@ -66,7 +66,7 @@ const I18N = {
     'visit.directions': 'Cómo llegar',
     'closer.h2': 'Martes y miércoles. <em>$20. Así de fácil.</em>',
     'closer.reassure': 'Sin cita · Niños y adultos · Cejas incluidas · Añade barba $25.',
-    'closer.hoursv': 'Mar – Sáb · 8 AM – 5:30 PM · Cerrado Dom y Lun',
+    'closer.hoursv': 'Lun – Sáb · 9 AM – 7 PM · Dom 10 AM – 2 PM',
     'modal.book': 'Agenda Con',
     'modal.newtab': '¿Problemas para cargar? Abre la reservación en otra pestaña →'
   }
