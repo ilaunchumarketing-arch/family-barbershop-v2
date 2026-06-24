@@ -72,10 +72,12 @@ window.FB_BARBERS = [
     bio: "Ten years and counting. Peter turns scruff into sculpture — beards, mustaches, and full-face grooming with a straight razor finish.",
     photo: "img/peter_profile.jpg",
     cuts: [
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1500048993953-d23a436266cf?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1562004760-aceed7bb0fe3?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=400&q=80"
+      "img/peter_work_1.jpg",
+      "img/peter_work_2.jpg",
+      "img/peter_work_3.jpg",
+      "img/peter_work_4.jpg",
+      "img/peter_work_5.jpg",
+      "img/peter_work_6.jpg"
     ]
   },
   {
