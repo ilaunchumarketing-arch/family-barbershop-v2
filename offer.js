@@ -42,11 +42,11 @@ function fbTrack(eventName, custom){
 /* ============ I18N ============ */
 const I18N = {
   es: {
-    'bar': '★ Atención Kissimmee — solo martes y miércoles · <strong>$20</strong> todos los cortes',
+    'bar': '★ Atención Kissimmee — solo martes y miércoles · <strong>$20</strong> todos los cortes para clientes nuevos',
     'logo.tag': 'Family Barbershop · Kissimmee, FL',
     'hook': 'No pagues $35 por tu próximo corte.',
     'h1.rest': 'Todos los cortes',
-    'kicker': 'Todos los martes y miércoles',
+    'kicker': 'Todos los martes y miércoles · Solo clientes nuevos',
     'sub': 'Niños y adultos · cejas incluidas · añade la barba por $25. Escoge tu barbero y agenda tu silla abajo.',
     'pill': '+ Añade barba =',
     'guarantee': '¿No quedó fresco? Lo arreglamos.',
@@ -58,14 +58,14 @@ const I18N = {
     'barbers.eyebrow': 'Escoge Tu Silla',
     'barbers.h2': 'Escoge tu barbero. <em>Agenda directo.</em>',
     'barbers.sub': 'Toca tu barbero para ver su trabajo y asegura tu silla de $20 para el martes o miércoles — directo en su propia agenda.',
-    'barbers.note': 'Especial de $20 válido martes y miércoles · Llega sin cita — agendar te asegura la silla.',
+    'barbers.note': 'Especial de $20 válido martes y miércoles para clientes nuevos · Llega sin cita — agendar te asegura la silla.',
     'visit.eyebrow': 'Visítanos',
     'visit.addr': 'Dirección',
     'visit.hours': 'Horario',
     'visit.phone': 'Teléfono',
     'visit.directions': 'Cómo llegar',
     'closer.h2': 'Martes y miércoles. <em>$20. Así de fácil.</em>',
-    'closer.reassure': 'Sin cita · Niños y adultos · Cejas incluidas · Añade barba $25.',
+    'closer.reassure': 'Solo clientes nuevos · Sin cita · Niños y adultos · Cejas incluidas · Añade barba $25.',
     'closer.hoursv': 'Lun – Sáb · 9 AM – 7 PM · Dom 10 AM – 2 PM',
     'modal.book': 'Agenda Con',
     'modal.newtab': '¿Problemas para cargar? Abre la reservación en otra pestaña →'

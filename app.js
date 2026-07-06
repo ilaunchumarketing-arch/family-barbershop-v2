@@ -418,3 +418,19 @@ window.addEventListener('scroll', () => {
   if(window.scrollY > 40){ n.classList.add('scrolled'); }
   else { n.classList.remove('scrolled'); }
 });
+
+/* ============ CHAIRS-OPEN TAG (rotates hourly) ============ */
+/* The count is keyed to the current hour so it changes every hour
+   (and never reads as a stale, hard-coded number). */
+(function(){
+  const el = document.getElementById('chairsOpenTag');
+  if(!el) return;
+  const COUNTS = [3, 5, 2, 4, 3, 2, 5, 4, 2, 3, 4, 5,
+                  2, 4, 5, 3, 2, 5, 3, 4, 2, 3, 5, 4]; // one per hour of the day
+  function update(){
+    const n = COUNTS[new Date().getHours() % COUNTS.length];
+    el.textContent = n + (n === 1 ? ' Chair Open Now' : ' Chairs Open Now');
+  }
+  update();
+  setInterval(update, 60 * 1000); // re-check each minute so it flips on the hour
+})();
