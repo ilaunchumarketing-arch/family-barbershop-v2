@@ -110,7 +110,6 @@ function barberCardHTML(b){
   return `
   <button class="lp-bcard" data-profile="${b.id}" aria-label="${dyn.view}: ${b.name}">
     <div class="lp-bcard-photo">
-      <span class="lp-bcard-rate"><span class="star">★</span>${(b.rating||5).toFixed(1)}</span>
       <img src="${b.photo}" alt="${b.name}, ${b.specialty}" loading="lazy" />
       <div class="lp-bcard-id">
         <h3>${b.name}</h3>
@@ -156,11 +155,6 @@ function buildProfileHTML(b){
         <span class="bp-eyebrow"><span class="dot"></span> ${b.years} ${dyn.yrsExp}</span>
         <h3 class="bp-name">${b.name}</h3>
         <div class="bp-spec">${b.specialty}</div>
-        <div class="bp-stats">
-          <div class="bp-stat"><span class="star">★</span><strong>${(b.rating||5).toFixed(1)}</strong><small>${b.reviews||''} ${dyn.reviews}</small></div>
-          <span class="bp-sep">·</span>
-          <div class="bp-stat bp-price">${dyn.from}<strong>$${b.price}</strong></div>
-        </div>
         <p class="bp-bio">${b.bio||''}</p>
         <div class="barber-contact">
           <a href="tel:${telLink(b.phone)}" class="barber-phone" aria-label="Call ${fn}">
@@ -223,7 +217,7 @@ const mSpec      = document.getElementById('mSpec');
 function openModal(b){
   mAvatar.style.backgroundImage = `url('${b.photo}')`;
   bookTitle.textContent = b.name;
-  mSpec.textContent = `${b.specialty} · ${b.years || ''} ${DYN[LANG].yrs} · ★ ${(b.rating||5).toFixed(1)}`;
+  mSpec.textContent = `${b.specialty} · ${b.years || ''} ${DYN[LANG].yrs}`;
   if(b.calendarUrl){
     const calId = b.calendarUrl.split('/').pop();
     bookEmbed.innerHTML = `<iframe src="${b.calendarUrl}" class="ghl-book-frame" id="${calId}_booking" scrolling="yes" title="Book with ${b.name}" loading="lazy"></iframe>`;

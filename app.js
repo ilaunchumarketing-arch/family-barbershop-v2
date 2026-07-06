@@ -59,7 +59,6 @@ function renderTile(b){
           <h3>${b.name}</h3>
           <span class="b-tile-spec">${b.specialty}</span>
         </div>
-        <span class="b-tile-rate"><span class="star">★</span>${b.rating.toFixed(1)}</span>
       </div>
     </div>
     <div class="b-tile-statusbar"><span class="status ${b.status}">${b.statusText}</span></div>
@@ -87,11 +86,6 @@ function buildProfileHTML(b){
         <span class="bp-eyebrow"><span class="dot"></span> ${b.years} years experience</span>
         <h3 class="bp-name">${b.name}</h3>
         <div class="bp-spec">${b.specialty}</div>
-        <div class="bp-stats">
-          <div class="bp-stat"><span class="star">★</span><strong>${b.rating.toFixed(1)}</strong><small>${b.reviews} reviews</small></div>
-          <span class="bp-sep">·</span>
-          <div class="bp-stat bp-price">From<strong>$${b.price}</strong></div>
-        </div>
         <p class="bp-bio">${b.bio}</p>
         <div class="barber-contact">
           <a href="tel:${telLink(b.phone)}" class="barber-phone" aria-label="Call ${b.name.split(' ')[0]}">
@@ -194,7 +188,7 @@ function openModal(barberId){
   if(!b) return;
   mAvatar.style.backgroundImage = `url('${b.photo}')`;
   bookTitle.textContent = b.name;
-  mSpec.textContent = `${b.specialty} · ${b.years} yrs · ★ ${b.rating.toFixed(1)}`;
+  mSpec.textContent = `${b.specialty} · ${b.years} yrs`;
 
   if(b.calendarUrl){
     const calId = b.calendarUrl.split('/').pop();

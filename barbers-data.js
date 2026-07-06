@@ -37,7 +37,7 @@ window.FB_BARBERS = [
     name: "Bebo",
     specialty: "Precision Cuts & Fades",
     featured: true,
-    years: 10,
+    years: 15,
     rating: 5.0,
     reviews: 120,
     price: 45,
@@ -51,7 +51,11 @@ window.FB_BARBERS = [
       "img/barber2_work_1.jpg",
       "img/barber2_work_2.jpg",
       "img/barber2_work_3.jpg",
-      "img/barber2_work_1.jpg"
+      "img/bebo_work_1.jpg",
+      "img/bebo_work_2.jpg",
+      "img/bebo_work_3.jpg",
+      "img/bebo_work_4.jpg",
+      "img/bebo_work_5.jpg"
     ]
   },
   {
@@ -86,7 +90,7 @@ window.FB_BARBERS = [
     name: "Kelvo",
     specialty: "Design & Lineup Pro",
     featured: true,
-    years: 7,
+    years: "30+",
     rating: 4.9,
     reviews: 198,
     price: 45,
@@ -94,7 +98,7 @@ window.FB_BARBERS = [
     statusText: "Open Today",
     phone: "(321) 217-1567",
     instagram: "family.barbershop",
-    bio: "If you want a logo, a part, or a freehand design in your fade — Kelvo is the artist. Seven years of clean lines and steady hands.",
+    bio: "If you want a logo, a part, or a freehand design in your fade — Kelvo is the artist. Over 30 years of clean lines and steady hands.",
     photo: "img/kelvo_profile.jpg",
     cuts: [
       "https://images.unsplash.com/photo-1583195764036-6dc248ac07d9?auto=format&fit=crop&w=400&q=80",
@@ -110,7 +114,7 @@ window.FB_BARBERS = [
     name: "Rafy",
     specialty: "Texture Specialist",
     featured: true,
-    years: 9,
+    years: "20+",
     rating: 4.8,
     reviews: 241,
     price: 40,
@@ -118,7 +122,7 @@ window.FB_BARBERS = [
     statusText: "Next 4:45",
     phone: "(407) 319-7849",
     instagram: "dr.cerquillo",
-    bio: "Nine years working with every hair type — curls, waves, coarse, fine. Rafy cuts to your texture, not against it.",
+    bio: "Over 20 years working with every hair type — curls, waves, coarse, fine. Rafy cuts to your texture, not against it.",
     photo: "img/rafy_profile.jpg",
     cuts: [
       "img/rafy_work_1.jpg?v=2",
@@ -137,7 +141,7 @@ window.FB_BARBERS = [
     name: "Jose",
     specialty: "Classic Cuts Expert",
     featured: true,
-    years: 15,
+    years: 30,
     rating: 5.0,
     reviews: 520,
     price: 50,
@@ -145,7 +149,7 @@ window.FB_BARBERS = [
     statusText: "Open Today",
     phone: "(786) 234-6663",
     instagram: "jr_dahalloffamer",
-    bio: "Fifteen years in the trade. Jose handles the classics — pompadours, side parts, scissor cuts — like the old-school masters who taught him.",
+    bio: "Thirty years in the trade. Jose handles the classics — pompadours, side parts, scissor cuts — like the old-school masters who taught him.",
     photo: "img/jose_profile.jpg",
     cuts: [
       "https://images.unsplash.com/photo-1542327897-d73f4005b533?auto=format&fit=crop&w=400&q=80",
@@ -159,9 +163,9 @@ window.FB_BARBERS = [
     calendarUrl: "https://api.leadconnectorhq.com/widget/booking/LgjCdxwJFgV6O0Ruo24w",
     booksyUrl: "https://booksy.com/en-us/546865_yamill_barber-shop_134766_kissimmee?utm_source=familybarbershop-website&utm_medium=book_button",
     name: "Yamil",
-    specialty: "Curly & Natural Hair",
+    specialty: "Skin Fade, Tapers & Classic Cuts",
     featured: true,
-    years: 8,
+    years: 13,
     rating: 4.9,
     reviews: 267,
     price: 45,
@@ -169,13 +173,19 @@ window.FB_BARBERS = [
     statusText: "Open Today",
     phone: "(407) 432-9548",
     instagram: "family.barbershop",
-    bio: "Eight years specializing in curly and natural textures. Yamil cuts dry, shapes the curl pattern, and finishes with a sponge twist if you want it.",
+    bio: "Thirteen years mastering the fundamentals. Yamil specializes in skin fades, clean tapers, and classic cuts — sharp, timeless work with lines that hold from the chair to the street.",
     photo: "img/yamil_profile.jpg",
     cuts: [
-      "https://images.unsplash.com/photo-1615109398623-88346a601842?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=400&q=80"
+      "img/yamil_work_1.jpg",
+      "img/yamil_work_2.jpg",
+      "img/yamil_work_3.jpg",
+      "img/yamil_work_4.jpg",
+      "img/yamil_work_5.jpg",
+      "img/yamil_work_6.jpg",
+      "img/yamil_work_7.jpg",
+      "img/yamil_work_8.jpg",
+      "img/yamil_work_9.jpg",
+      "img/yamil_work_10.jpg"
     ]
   }
 ];
