@@ -208,6 +208,11 @@ window.FB_BARBERS = [
     instagram: "family.barbershop",    // TODO: swap for Ricardo's handle if he has one
     bio: "Master barber at Family Barbershop. Clean lines, sharp fades and a finish that holds from the chair to the street.", // TODO: replace with Ricardo's own bio
     photo: "img/ricardo_profile.jpg",
-    cuts: []                           // TODO: add Ricardo's work photos (gallery stays hidden until then)
+    cuts: [
+      "img/ricardo_work_1.jpg",
+      "img/ricardo_work_2.jpg",
+      "img/ricardo_work_3.jpg",
+      "img/ricardo_work_4.jpg"
+    ]
   }
 ];
