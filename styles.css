@@ -1541,6 +1541,7 @@ h3{
 .b-tile[data-profile="peter"] .b-tile-photo img{ object-position:center 18%; }
 .b-tile[data-profile="kelvo"] .b-tile-photo img{ object-position:center 20%; }
 .b-tile[data-profile="rafy"]  .b-tile-photo img{ object-position:center 15%; }
+.b-tile[data-profile="ricardo"] .b-tile-photo img{ object-position:center 14%; }
 .b-tile[data-profile="jose"]  .b-tile-photo img{ object-position:center 16%; }
 .b-tile[data-profile="yamil"] .b-tile-photo img{ object-position:center 7%; }
 .b-tile-photo::after{

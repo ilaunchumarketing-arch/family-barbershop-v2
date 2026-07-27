@@ -152,7 +152,7 @@ function buildProfileHTML(b){
         <img src="${b.photo}" alt="${b.name}, ${b.specialty}" />
       </div>
       <div class="bp-info">
-        <span class="bp-eyebrow"><span class="dot"></span> ${b.years} ${dyn.yrsExp}</span>
+        ${b.years ? `<span class="bp-eyebrow"><span class="dot"></span> ${b.years} ${dyn.yrsExp}</span>` : ''}
         <h3 class="bp-name">${b.name}</h3>
         <div class="bp-spec">${b.specialty}</div>
         <p class="bp-bio">${b.bio||''}</p>
@@ -217,7 +217,7 @@ const mSpec      = document.getElementById('mSpec');
 function openModal(b){
   mAvatar.style.backgroundImage = `url('${b.photo}')`;
   bookTitle.textContent = b.name;
-  mSpec.textContent = `${b.specialty} · ${b.years || ''} ${DYN[LANG].yrs}`;
+  mSpec.textContent = b.years ? `${b.specialty} · ${b.years} ${DYN[LANG].yrs}` : b.specialty;
   if(b.calendarUrl){
     const calId = b.calendarUrl.split('/').pop();
     bookEmbed.innerHTML = `<iframe src="${b.calendarUrl}" class="ghl-book-frame" id="${calId}_booking" scrolling="yes" title="Book with ${b.name}" loading="lazy"></iframe>`;

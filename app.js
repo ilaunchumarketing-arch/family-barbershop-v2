@@ -83,7 +83,7 @@ function buildProfileHTML(b){
         <img src="${b.photo}" alt="${b.name}, ${b.specialty}" />
       </div>
       <div class="bp-info">
-        <span class="bp-eyebrow"><span class="dot"></span> ${b.years} years experience</span>
+        ${b.years ? `<span class="bp-eyebrow"><span class="dot"></span> ${b.years} years experience</span>` : ''}
         <h3 class="bp-name">${b.name}</h3>
         <div class="bp-spec">${b.specialty}</div>
         <p class="bp-bio">${b.bio}</p>
@@ -188,7 +188,7 @@ function openModal(barberId){
   if(!b) return;
   mAvatar.style.backgroundImage = `url('${b.photo}')`;
   bookTitle.textContent = b.name;
-  mSpec.textContent = `${b.specialty} · ${b.years} yrs`;
+  mSpec.textContent = b.years ? `${b.specialty} · ${b.years} yrs` : b.specialty;
 
   if(b.calendarUrl){
     const calId = b.calendarUrl.split('/').pop();

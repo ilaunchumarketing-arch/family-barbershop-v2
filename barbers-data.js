@@ -187,5 +187,27 @@ window.FB_BARBERS = [
       "img/yamil_work_9.jpg",
       "img/yamil_work_10.jpg"
     ]
+  },
+  {
+    id: "ricardo",
+    /* TODO: swap in Ricardo's real GHL calendar once the calendar is created.
+       Shape must match the others:
+       calendarUrl: "https://api.leadconnectorhq.com/widget/booking/<CALENDAR_ID>",
+       Blocked 2026-07-27: the Family Barbershop GHL Private Integration Token in
+       ilaunchu/.env (GHL_FAMILY_BARBERSHOP_PIT) returns 401 "Invalid Private
+       Integration token", so the calendar could not be created via API.
+       Until then app.js falls back to "booking coming soon — call the shop". */
+    // calendarUrl: "https://api.leadconnectorhq.com/widget/booking/PLACEHOLDER",
+    name: "Ricardo",
+    specialty: "Cuts, Fades & Beards", // TODO: replace with Ricardo's real specialty
+    featured: true,                    // renders the gold "Master Barber" badge
+    // years: omitted until confirmed — templates hide the line rather than guess
+    status: "open",
+    statusText: "Open Today",
+    phone: "(407) 978-6879",           // TODO: shop main line — swap for Ricardo's direct line
+    instagram: "family.barbershop",    // TODO: swap for Ricardo's handle if he has one
+    bio: "Master barber at Family Barbershop. Clean lines, sharp fades and a finish that holds from the chair to the street.", // TODO: replace with Ricardo's own bio
+    photo: "img/ricardo_profile.jpg",
+    cuts: []                           // TODO: add Ricardo's work photos (gallery stays hidden until then)
   }
 ];
