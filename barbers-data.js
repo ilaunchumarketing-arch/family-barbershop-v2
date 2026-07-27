@@ -207,7 +207,7 @@ window.FB_BARBERS = [
     phone: "(787) 925-7775",
     instagram: "family.barbershop",    // TODO: swap for Ricardo's handle if he has one
     bio: "Master barber at Family Barbershop. Clean lines, sharp fades and a finish that holds from the chair to the street.", // TODO: replace with Ricardo's own bio
-    photo: "img/ricardo_profile.jpg?v=2", // ?v bump — file re-cropped/tone-matched in place
+    photo: "img/ricardo_profile.jpg?v=3", // ?v bump — file re-cropped/tone-matched in place
     cuts: [
       "img/ricardo_work_1.jpg",
       "img/ricardo_work_2.jpg",
