@@ -190,14 +190,7 @@ window.FB_BARBERS = [
   },
   {
     id: "ricardo",
-    /* TODO: swap in Ricardo's real GHL calendar once the calendar is created.
-       Shape must match the others:
-       calendarUrl: "https://api.leadconnectorhq.com/widget/booking/<CALENDAR_ID>",
-       Blocked 2026-07-27: the Family Barbershop GHL Private Integration Token in
-       ilaunchu/.env (GHL_FAMILY_BARBERSHOP_PIT) returns 401 "Invalid Private
-       Integration token", so the calendar could not be created via API.
-       Until then app.js falls back to "booking coming soon — call the shop". */
-    // calendarUrl: "https://api.leadconnectorhq.com/widget/booking/PLACEHOLDER",
+    calendarUrl: "https://api.leadconnectorhq.com/widget/booking/pKG6IriilPdoEh8YBDik",
     name: "Ricardo",
     specialty: "Cuts, Fades & Beards", // TODO: replace with Ricardo's real specialty
     featured: true,                    // renders the gold "Master Barber" badge
