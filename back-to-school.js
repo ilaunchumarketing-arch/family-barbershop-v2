@@ -1,24 +1,13 @@
-/* ============ FAMILY BARBERSHOP — BACK-TO-SCHOOL LANDING PAGE ============
-   Aug 3–8 promo LP: $20 cut + brows, students 16 & under, new clients only.
-   Same lean bilingual (EN/ES) structure as the $20 Tue/Wed LP (offer.js):
-   barber cards open the shared profile modal; "Book with [barber]" routes to
-   THEIR own book (Booksy / WhatsApp / in-shop GHL calendar).
-   Meta Pixel + CAPI: PageView, ViewContent (profile open), Lead (book tap,
-   promo bts_20). */
-
-const BARBERS = window.FB_BARBERS || [];
+/* ============ FAMILY BARBERSHOP — BACK-TO-SCHOOL LP (page 1 of 2) ============
+   Aug 3–8 promo: $20 cut + brows, students 16 & under, new clients only.
+   THIS page sells the offer: the looks (kids' cuts), how it works, scarcity.
+   Booking happens on page 2 (/back-to-school-book) — every "Book Their
+   Appointment" tap navigates there. Bilingual EN/ES like the /offer LP.
+   Meta Pixel + CAPI: PageView, ViewContent (book CTA tap → bts_book_cta). */
 
 /* Promo window (Eastern) — countdown flips from "starts in" to "ends in". */
 const BTS_START = new Date('2026-08-03T00:00:00-04:00');
 const BTS_END   = new Date('2026-08-08T23:59:59-04:00');
-
-function telLink(phone){ return '+1' + (phone || '').replace(/\D/g,''); }
-function firstName(name){ return (name || '').split(' ')[0]; }
-function bookingMethod(b){
-  if(b.booksyUrl)   return 'booksy';
-  if(b.whatsappUrl) return 'whatsapp';
-  return 'calendar'; // in-shop GHL calendar
-}
 
 /* ============ META PIXEL + CAPI ============ */
 const FB_PIXEL_ID = '1699302127751630';
@@ -52,16 +41,31 @@ const I18N = {
     'hook': 'No los mandes de regreso con el corte del verano.',
     'h1.rest': 'Corte + Cejas',
     'kicker': 'Estudiantes hasta 16 años · Del 3 al 8 de agosto · Solo clientes nuevos',
-    'sub': 'Una semana nada más. Primer día, primera impresión — mándalos a la escuela con un corte fresco de un barbero máster. Escoge tu barbero y reserva su silla abajo.',
+    'sub': 'Una semana nada más. Baja para ver los cortes del primer día y reserva su silla — toma como un minuto.',
     'pill': 'Cupos limitados',
-    'cta.pick': 'Reserva Tu Silla',
-    'micro': 'Agenda directo con tu barbero — Booksy, WhatsApp o su calendario.',
+    'cta.book': 'Reserva Su Cita',
+    'cta.looks': 'Ver Los Cortes',
+    'micro': 'En la próxima página escoges su barbero — Booksy, WhatsApp o su calendario.',
     'trust.barbers': 'Barberos Máster',
     'trust.years': 'Años de Experiencia',
-    'barbers.eyebrow': 'Reserva Su Silla',
-    'barbers.h2': 'Escoge tu barbero. <em>Agenda directo.</em>',
-    'barbers.sub': 'Toca un barbero para ver su trabajo y asegura la silla de regreso a clases de $20 para el 3–8 de agosto — directo en su propia agenda.',
-    'barbers.note': '$20 corte + cejas válido del 3 al 8 de agosto para estudiantes hasta 16 años · solo clientes nuevos · cupos limitados — cuando se llenan las sillas de la semana, se acabó.',
+    'cuts.eyebrow': 'Los Cortes',
+    'cuts.h2': 'Escoge su <em>look del primer día.</em>',
+    'cuts.sub': 'Cada corte de abajo es el mismo especial — <strong>$20 con cejas incluidas</strong>, hecho por un barbero máster. Toca una foto para verla en grande y muéstrasela al barbero. Él se encarga del resto.',
+    'cuts.c1': 'Fade con Rizos',
+    'cuts.c2': 'Diseño Freestyle',
+    'cuts.c3': 'Taper Bajo',
+    'cuts.c4': 'Skin Fade',
+    'cuts.c5': 'Corte Clásico',
+    'cuts.c6': 'Lineup Nítido',
+    'cuts.note': '¿No ves su estilo? Cualquier corte de estudiante cuenta — $20 con cejas incluidas, del 3 al 8 de agosto, solo clientes nuevos.',
+    'how.eyebrow': 'Cómo Funciona',
+    'how.h2': 'Tres pasos. <em>Nada más.</em>',
+    'how.s1t': 'Reserva su silla',
+    'how.s1b': 'Toca el botón de abajo, escoge su barbero y una hora entre el <strong>3 y el 8 de agosto</strong>. Toma como un minuto.',
+    'how.s2t': 'Tráelo a la barbería',
+    'how.s2b': 'Muéstrale al barbero el corte que escogiste. Corte + cejas, listo en unos 30 minutos.',
+    'how.s3t': 'Listo pa’l primer día',
+    'how.s3b': 'Pagas <strong>$20</strong> en la barbería. Solo clientes nuevos — ese es todo el deal, sin letra chiquita.',
     'visit.eyebrow': 'Visítanos',
     'visit.addr': 'Dirección',
     'visit.hours': 'Horario',
@@ -69,19 +73,8 @@ const I18N = {
     'visit.directions': 'Cómo llegar',
     'closer.h2': 'Una semana. <em>$20. Corte nuevo.</em>',
     'closer.reassure': 'Estudiantes hasta 16 años · Corte + cejas · Del 3 al 8 de agosto · Solo clientes nuevos · Cupos limitados.',
-    'closer.hoursv': 'Lun – Sáb · 9 AM – 7 PM · Dom 10 AM – 2 PM',
-    'modal.book': 'Agenda Con',
-    'modal.newtab': '¿Problemas para cargar? Abre la reservación en otra pestaña →'
+    'closer.hoursv': 'Lun – Sáb · 9 AM – 7 PM · Dom 10 AM – 2 PM'
   }
-};
-/* dynamic (per-card / per-profile) strings */
-const DYN = {
-  en: { view:'View Profile', bookWith:'Book with', booksy:'On Booksy', whatsapp:'On WhatsApp', calendar:'Books Online',
-        yrs:'yrs', yrsExp:'years experience', reviews:'reviews', from:'From', work:'Work', recent:'recent cuts',
-        soon:'Online booking coming soon. Call' },
-  es: { view:'Ver Perfil', bookWith:'Agenda con', booksy:'Por Booksy', whatsapp:'Por WhatsApp', calendar:'Agenda En Línea',
-        yrs:'años', yrsExp:'años de experiencia', reviews:'reseñas', from:'Desde', work:'Trabajos', recent:'cortes recientes',
-        soon:'Reservación en línea muy pronto. Llama al' }
 };
 
 let LANG = 'en';
@@ -97,7 +90,6 @@ function applyLang(lang){
   });
   document.querySelectorAll('.lp-lang button').forEach(b => b.classList.toggle('is-on', b.getAttribute('data-lang') === LANG));
   try { localStorage.setItem('fb_lp_lang', LANG); } catch(e){}
-  renderBarbers();
   renderCountdown();
 }
 
@@ -133,7 +125,7 @@ setInterval(renderCountdown, 30 * 1000);
   if(!slides.length || !dotsWrap) return;
   let idx = 0, timer = null;
   dotsWrap.innerHTML = slides.map((_,i) =>
-    `<button type="button" data-bts-dot="${i}" aria-label="Flyer ${i+1}" class="${i===0?'is-on':''}"></button>`).join('');
+    `<button type="button" data-bts-dot="${i}" aria-label="Photo ${i+1}" class="${i===0?'is-on':''}"></button>`).join('');
   const dots = Array.from(dotsWrap.querySelectorAll('button'));
   const show = (i) => {
     idx = (i + slides.length) % slides.length;
@@ -151,176 +143,7 @@ setInterval(renderCountdown, 30 * 1000);
   if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches) auto();
 })();
 
-/* ============ BARBER CARDS (tap = open profile, same as /offer) ============ */
-const BADGE_ICONS = {
-  booksy:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></svg>',
-  whatsapp: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 21l2.2-5.3A8.5 8.5 0 1 1 21 11.5z"/></svg>',
-  calendar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M12 14v3l2 1"/></svg>'
-};
-const grid = document.getElementById('lpBarbersGrid');
-
-function barberCardHTML(b){
-  const m = bookingMethod(b), dyn = DYN[LANG];
-  return `
-  <button class="lp-bcard" data-profile="${b.id}" aria-label="${dyn.view}: ${b.name}">
-    <div class="lp-bcard-photo">
-      <img src="${b.photo}" alt="${b.name}, ${b.specialty}" loading="lazy" />
-      <div class="lp-bcard-id">
-        <h3>${b.name}</h3>
-        <span class="lp-bcard-spec">${b.specialty}</span>
-      </div>
-    </div>
-    <div class="lp-bcard-body">
-      <div class="lp-bcard-meta">
-        <span class="lp-badge ${m}">${BADGE_ICONS[m]}${dyn[m]}</span>
-        ${b.years ? `<span class="lp-bcard-yrs">${b.years} ${dyn.yrs}</span>` : ''}
-      </div>
-      <span class="lp-book">
-        ${dyn.view}
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-      </span>
-    </div>
-  </button>`;
-}
-function renderBarbers(){ if(grid) grid.innerHTML = BARBERS.map(barberCardHTML).join(''); }
-
-/* ============ PROFILE MODAL (ported from the website) ============ */
-const profileModal = document.getElementById('profileModal');
-const profileBody  = document.getElementById('profileBody');
-
-function masterBadge(){
-  return `<span class="bp-master" style="position:absolute;top:16px;right:16px;z-index:5;display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:rgba(10,10,12,.78);border:1px solid var(--line-2);font-family:var(--ff-body);font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M12 2l2.6 6.6L22 9.3l-5.5 4.8L18.2 22 12 18.3 5.8 22l1.7-7.9L2 9.3l7.4-.7L12 2z"/></svg> Master Barber</span>`;
-}
-function hasRealCuts(b){
-  return Array.isArray(b.cuts) && b.cuts.length > 0 && b.cuts.every(c => c.startsWith('img/'));
-}
-function buildProfileHTML(b){
-  const dyn = DYN[LANG], fn = firstName(b.name), m = bookingMethod(b);
-  return `
-    <div class="bp-top">
-      <div class="bp-photo">
-        <span class="status ${b.status}">${b.statusText}</span>
-        ${b.featured ? masterBadge() : ''}
-        <img src="${b.photo}" alt="${b.name}, ${b.specialty}" />
-      </div>
-      <div class="bp-info">
-        ${b.years ? `<span class="bp-eyebrow"><span class="dot"></span> ${b.years} ${dyn.yrsExp}</span>` : ''}
-        <h3 class="bp-name">${b.name}</h3>
-        <div class="bp-spec">${b.specialty}</div>
-        <p class="bp-bio">${b.bio||''}</p>
-        <div class="barber-contact">
-          <a href="tel:${telLink(b.phone)}" class="barber-phone" aria-label="Call ${fn}">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
-            ${b.phone||''}
-          </a>
-          <a href="https://instagram.com/${b.instagram}" target="_blank" rel="noopener" class="barber-ig" aria-label="${fn} on Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-            @${b.instagram}
-          </a>
-        </div>
-        <button class="barber-book bp-book" data-book="${b.id}" aria-label="${dyn.bookWith} ${b.name}">
-          ${dyn.bookWith} ${fn}
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </button>
-      </div>
-    </div>
-    ${hasRealCuts(b) ? `
-    <div class="bp-gallery-head">
-      <h4>${fn} · ${dyn.work}</h4>
-      <span>${b.cuts.length} ${dyn.recent}</span>
-    </div>
-    <div class="bp-gallery">
-      ${b.cuts.map(c => `<div class="bp-shot"><img src="${c}" alt="Recent cut by ${b.name}" loading="lazy"/></div>`).join('')}
-    </div>` : ''}`;
-}
-function bindProfileGallery(){
-  const imgs = Array.from(profileBody.querySelectorAll('.bp-gallery .bp-shot img'));
-  imgs.forEach((img, i) => {
-    img.addEventListener('click', () => {
-      lbList = imgs.map(im => ({ src: im.currentSrc || im.src, alt: im.alt }));
-      lbOpen(i);
-    });
-  });
-}
-function openProfile(id){
-  const b = BARBERS.find(x => x.id === id);
-  if(!b) return;
-  profileBody.innerHTML = buildProfileHTML(b);
-  profileBody.scrollTop = 0;
-  profileModal.classList.add('open');
-  profileModal.setAttribute('aria-hidden','false');
-  document.body.style.overflow = 'hidden';
-  bindProfileGallery();
-}
-function closeProfile(){
-  profileModal.classList.remove('open');
-  profileModal.setAttribute('aria-hidden','true');
-  if(!modal.classList.contains('open')) document.body.style.overflow = '';
-}
-
-/* ============ BOOKING — route each barber to THEIR own book ============ */
-const modal      = document.getElementById('bookModal');
-const bookEmbed  = document.getElementById('bookEmbed');
-const bookNewTab = document.getElementById('bookNewTab');
-const mAvatar    = document.getElementById('mAvatar');
-const bookTitle  = document.getElementById('bookTitle');
-const mSpec      = document.getElementById('mSpec');
-
-function openModal(b){
-  mAvatar.style.backgroundImage = `url('${b.photo}')`;
-  bookTitle.textContent = b.name;
-  mSpec.textContent = b.years ? `${b.specialty} · ${b.years} ${DYN[LANG].yrs}` : b.specialty;
-  if(b.calendarUrl){
-    const calId = b.calendarUrl.split('/').pop();
-    bookEmbed.innerHTML = `<iframe src="${b.calendarUrl}" class="ghl-book-frame" id="${calId}_booking" scrolling="yes" title="Book with ${b.name}" loading="lazy"></iframe>`;
-    bookNewTab.href = b.calendarUrl; bookNewTab.style.display = '';
-  } else {
-    bookEmbed.innerHTML = `<p class="tiny center" style="padding:40px 0">${DYN[LANG].soon} <a href="tel:${telLink(b.phone)}" style="color:var(--red)">${b.phone||''}</a>.</p>`;
-    bookNewTab.style.display = 'none';
-  }
-  modal.classList.add('open');
-  modal.setAttribute('aria-hidden','false');
-  document.body.style.overflow = 'hidden';
-}
-function closeModal(){
-  modal.classList.remove('open');
-  modal.setAttribute('aria-hidden','true');
-  if(!profileModal.classList.contains('open')) document.body.style.overflow = '';
-  bookEmbed.innerHTML = '';
-}
-/* Fire the Lead, then send the customer to that barber's own destination. */
-function bookBarber(b){
-  fbTrack('Lead', {
-    content_name: b.name, content_category: 'appointment_booking',
-    booking_method: bookingMethod(b), promo: 'bts_20', value: 20, currency: 'USD'
-  });
-  if(b.booksyUrl){   window.open(b.booksyUrl,   '_blank', 'noopener'); return; }
-  if(b.whatsappUrl){ window.open(b.whatsappUrl, '_blank', 'noopener'); return; }
-  closeProfile();
-  openModal(b);
-}
-
-/* ============ EVENTS ============ */
-document.addEventListener('click', (e) => {
-  const prof = e.target.closest('[data-profile]');
-  if(prof){
-    const b = BARBERS.find(x => x.id === prof.getAttribute('data-profile'));
-    if(b) fbTrack('ViewContent', { content_name: b.name, content_category: 'barber_profile' });
-    openProfile(prof.getAttribute('data-profile'));
-    return;
-  }
-  const bk = e.target.closest('[data-book]');
-  if(bk){ const b = BARBERS.find(x => x.id === bk.getAttribute('data-book')); if(b) bookBarber(b); return; }
-  if(e.target.closest('[data-profile-close]')){ closeProfile(); return; }
-  if(e.target.matches('[data-close]')){ closeModal(); return; }
-  const lang = e.target.closest('[data-lang]');
-  if(lang){ applyLang(lang.getAttribute('data-lang')); return; }
-  const sc = e.target.closest('[data-scroll-target]');
-  if(sc){ const t = document.querySelector(sc.getAttribute('data-scroll-target')); if(t) t.scrollIntoView({ behavior:'smooth' }); return; }
-});
-document.addEventListener('keydown', (e) => { if(e.key === 'Escape'){ closeModal(); closeProfile(); lbClose(); } });
-
-/* ============ LIGHTBOX (ported from the website) ============ */
+/* ============ LIGHTBOX (cut photos — swipe / pinch / zoom) ============ */
 const lb = document.getElementById('lightbox');
 const lbImg = document.getElementById('lbImg');
 const lbCounter = document.getElementById('lbCounter');
@@ -336,7 +159,7 @@ function lbReset(animate){
 }
 function lbLoad(){ const it = lbList[lbIdx]; lbImg.src = it.src; lbImg.alt = it.alt || ''; lbCounter.textContent = `${lbIdx+1} / ${lbList.length}`; lbReset(false); }
 function lbOpen(i){ lbIdx = i; lbLoad(); lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); document.body.style.overflow = 'hidden'; }
-function lbClose(){ if(!lb) return; lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); if(!profileModal.classList.contains('open')&&!modal.classList.contains('open')) document.body.style.overflow=''; lbPointers.clear(); lbPinchStart = null; lbDragging = false; }
+function lbClose(){ if(!lb) return; lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); document.body.style.overflow=''; lbPointers.clear(); lbPinchStart = null; lbDragging = false; }
 function lbStep(d){ lbIdx = (lbIdx + d + lbList.length) % lbList.length; lbLoad(); }
 if(lb){
   lb.addEventListener('click', (e) => {
@@ -347,6 +170,7 @@ if(lb){
   });
   document.addEventListener('keydown', (e) => {
     if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape')     { lbClose(); }
     if (e.key === 'ArrowLeft')  { lbStep(-1); }
     if (e.key === 'ArrowRight') { lbStep(+1); }
   });
@@ -411,12 +235,42 @@ if(lb){
   }, { passive: true });
 }
 
+/* Tap a look → full-screen lightbox */
+(function(){
+  const cards = Array.from(document.querySelectorAll('#cutsGrid .cut-card'));
+  cards.forEach((c, i) => {
+    c.addEventListener('click', () => {
+      lbList = cards.map(cc => { const im = cc.querySelector('img'); return { src: im.currentSrc || im.src, alt: im.alt }; });
+      lbOpen(i);
+    });
+  });
+})();
+
+/* ============ EVENTS ============ */
+document.addEventListener('click', (e) => {
+  const lang = e.target.closest('[data-lang]');
+  if(lang){ applyLang(lang.getAttribute('data-lang')); return; }
+  const sc = e.target.closest('[data-scroll]');
+  if(sc){
+    const t = document.querySelector(sc.getAttribute('href'));
+    if(t){ e.preventDefault(); t.scrollIntoView({ behavior:'smooth' }); }
+    return;
+  }
+  // book CTA → page 2 (fire the funnel event, let navigation proceed)
+  const bk = e.target.closest('[data-book-cta]');
+  if(bk){
+    fbTrack('ViewContent', { content_name: 'bts_book_cta', content_category: 'promo_funnel' });
+    // anchor navigation to /back-to-school-book proceeds naturally
+    if(bk.tagName !== 'A'){ location.href = '/back-to-school-book'; }
+  }
+});
+
 /* ============ INIT ============ */
 (function init(){
   cacheEN();
   let saved = null;
   try { saved = localStorage.getItem('fb_lp_lang'); } catch(e){}
   const initial = saved || ((navigator.language||'').toLowerCase().startsWith('es') ? 'es' : 'en');
-  applyLang(initial);  // renders the barber cards + countdown
+  applyLang(initial);
   fbTrack('PageView');
 })();
