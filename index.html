@@ -26,7 +26,7 @@ src="https://www.facebook.com/tr?id=1699302127751630&ev=PageView&noscript=1"
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=22" />
+<link rel="stylesheet" href="styles.css?v=23" />
 <link rel="icon" type="image/png" href="img/logo.png" />
 </head>
 <body>
@@ -40,12 +40,16 @@ src="https://www.facebook.com/tr?id=1699302127751630&ev=PageView&noscript=1"
       </span>
     </a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#barbers">Barbers</a>
-      <a href="#services">Services</a>
-      <a href="#gallery">Work</a>
-      <a href="#visit">Visit</a>
+      <a href="#barbers" data-i18n="nav.barbers">Barbers</a>
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#gallery" data-i18n="nav.work">Work</a>
+      <a href="#visit" data-i18n="nav.visit">Visit</a>
     </nav>
-    <a href="#barbers" class="btn btn-primary btn-sm">Book Now</a>
+    <div class="bts-lang nav-lang" role="group" aria-label="Language / Idioma">
+      <button type="button" data-bts-lang-btn="en" class="is-on">EN</button>
+      <button type="button" data-bts-lang-btn="es">ES</button>
+    </div>
+    <a href="#barbers" class="btn btn-primary btn-sm" data-i18n="nav.book">Book Now</a>
   </div>
 </header>
 
@@ -54,21 +58,21 @@ src="https://www.facebook.com/tr?id=1699302127751630&ev=PageView&noscript=1"
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="container hero-inner">
     <div class="hero-copy">
-      <span class="eyebrow"><span class="dot"></span> Kissimmee, FL · Est. 2016</span>
-      <h1 class="display">
+      <span class="eyebrow"><span class="dot"></span> <span data-i18n="hero.eyebrow">Kissimmee, FL · Est. 2016</span></span>
+      <h1 class="display" data-i18n="hero.h1">
         Sharp<br/>
         cuts.<br/>
         <em>Real</em> barbers.
       </h1>
-      <p class="lead">Ten master barbers under one roof. Pick your artist, see their portfolio, book your chair — under a minute, no phone tag.</p>
+      <p class="lead" data-i18n="hero.lead">Ten master barbers under one roof. Pick your artist, see their portfolio, book your chair — under a minute, no phone tag.</p>
       <a href="#offer" class="hero-deal" aria-label="See the Tuesday and Wednesday $20 new-client haircut special">
-        <span class="hero-deal-badge">Tue &amp; Wed</span>
-        <span class="hero-deal-text"><strong>$20</strong> All Haircuts · New Clients Only</span>
+        <span class="hero-deal-badge" data-i18n="hero.dealbadge">Tue &amp; Wed</span>
+        <span class="hero-deal-text" data-i18n="hero.dealtext"><strong>$20</strong> All Haircuts · New Clients Only</span>
         <svg class="hero-deal-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
       <div class="hero-cta">
         <a href="#barbers" class="btn btn-primary">
-          Pick Your Barber
+          <span data-i18n="cta.pick">Pick Your Barber</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
         <a href="https://instagram.com/family.barbershop" target="_blank" rel="noopener" class="btn btn-ghost">
@@ -79,19 +83,19 @@ src="https://www.facebook.com/tr?id=1699302127751630&ev=PageView&noscript=1"
       <div class="hero-meta">
         <div class="hero-meta-item">
           <strong>10</strong>
-          <span>Master Barbers</span>
+          <span data-i18n="hero.meta1">Master Barbers</span>
         </div>
         <div class="hero-meta-item">
-          <strong>7<small style="font-size:.5em;display:inline-block;vertical-align:middle;color:var(--muted);letter-spacing:.18em;margin-left:6px">DAYS</small></strong>
-          <span>Mon – Sun</span>
+          <strong>7<small style="font-size:.5em;display:inline-block;vertical-align:middle;color:var(--muted);letter-spacing:.18em;margin-left:6px" data-i18n="hero.days">DAYS</small></strong>
+          <span data-i18n="hero.meta2">Mon – Sun</span>
         </div>
       </div>
     </div>
     <div class="hero-visual">
       <div class="hero-sticker" aria-hidden="true">
-        <span>Tue &amp; Wed</span>
+        <span data-i18n="sticker.days">Tue &amp; Wed</span>
         <strong>$20</strong>
-        <span>New Clients</span>
+        <span data-i18n="sticker.new">New Clients</span>
       </div>
       <img src="img/hero-shop.jpg" alt="Inside Family Barbershop — Elvin Rodriguez giving a fade while the rest of the team works the floor" />
       <div class="hero-tag">
@@ -125,7 +129,7 @@ src="https://www.facebook.com/tr?id=1699302127751630&ev=PageView&noscript=1"
       </p>
     </div>
     <div class="bts-flyers" id="btsFlyers">
-      <div class="bts-flyer" role="button" tabindex="0" aria-label="Back-to-school photo 1"><img src="img/bts/site_kid_chair.jpg" alt="Family Barbershop barber giving a young student a back-to-school haircut" loading="lazy"/></div>
+      <div class="bts-flyer" role="button" tabindex="0" aria-label="Back-to-school photo 1"><img src="img/bts/site_hero_kid.jpg" alt="Happy young student with a fresh haircut and his backpack, ready for the first day of school" loading="lazy"/></div>
       <div class="bts-flyer" role="button" tabindex="0" aria-label="Back-to-school photo 2"><img src="img/bts/site_design_cut.jpg" alt="Boy with a fresh design haircut ready for the first day of school" loading="lazy"/></div>
       <div class="bts-flyer" role="button" tabindex="0" aria-label="Back-to-school photo 3"><img src="img/bts/site_teen_taper.jpg" alt="Student with a clean taper haircut at Family Barbershop Kissimmee" loading="lazy"/></div>
     </div>
@@ -159,22 +163,22 @@ src="https://www.facebook.com/tr?id=1699302127751630&ev=PageView&noscript=1"
     <div class="offer-card">
       <div class="offer-pole" aria-hidden="true"></div>
       <div class="offer-content">
-        <span class="eyebrow"><span class="dot"></span> Tuesday &amp; Wednesday Special</span>
+        <span class="eyebrow"><span class="dot"></span> <span data-i18n="offer.eyebrow">Tuesday &amp; Wednesday Special</span></span>
         <div class="offer-deal">
           <span class="offer-price">$20</span>
           <div class="offer-deal-text">
-            <h2 class="offer-title">All<br/>Haircuts</h2>
-            <p class="offer-incl">New Clients · Kids &amp; Adults · Eyebrows Included</p>
+            <h2 class="offer-title" data-i18n="offer.title">All<br/>Haircuts</h2>
+            <p class="offer-incl" data-i18n="offer.incl">New Clients · Kids &amp; Adults · Eyebrows Included</p>
           </div>
         </div>
         <div class="offer-meta">
-          <span class="offer-pill">New Clients Only</span>
-          <span class="offer-pill">+ Add Beard = <strong>$25</strong></span>
-          <span class="offer-days">Every Tue &amp; Wed · 9 AM – 7 PM</span>
+          <span class="offer-pill" data-i18n="offer.pill1">New Clients Only</span>
+          <span class="offer-pill" data-i18n="offer.pill2">+ Add Beard = <strong>$25</strong></span>
+          <span class="offer-days" data-i18n="offer.days">Every Tue &amp; Wed · 9 AM – 7 PM</span>
         </div>
         <div class="offer-cta">
           <a href="#barbers" class="btn btn-primary">
-            Pick Your Barber
+            <span data-i18n="cta.pick">Pick Your Barber</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
           <a href="tel:+14079786879" class="btn btn-ghost">
@@ -182,7 +186,7 @@ src="https://www.facebook.com/tr?id=1699302127751630&ev=PageView&noscript=1"
             (407) 978-6879
           </a>
         </div>
-        <p class="offer-fine">$20 special is for new clients only · 2611 Simpson Rd, Kissimmee FL 34744 · Walk-ins welcome — booking guarantees your chair.</p>
+        <p class="offer-fine" data-i18n="offer.fine">$20 special is for new clients only · 2611 Simpson Rd, Kissimmee FL 34744 · Walk-ins welcome — booking guarantees your chair.</p>
       </div>
     </div>
   </div>
@@ -190,7 +194,7 @@ src="https://www.facebook.com/tr?id=1699302127751630&ev=PageView&noscript=1"
 
 <!-- MARQUEE (barber pole) -->
 <div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
+  <div class="marquee-track" data-i18n="marquee.1">
     <span>Tuesday &amp; Wednesday</span>
     <span>$20 All Haircuts</span>
     <span>New Clients Only</span>
@@ -208,7 +212,7 @@ src="https://www.facebook.com/tr?id=1699302127751630&ev=PageView&noscript=1"
   </div>
 </div>
 <div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
+  <div class="marquee-track" data-i18n="marquee.2">
     <span>Master Barbers Only</span>
     <span>Walk-Ins Welcome</span>
     <span>Open 7 Days</span>
@@ -229,89 +233,89 @@ src="https://www.facebook.com/tr?id=1699302127751630&ev=PageView&noscript=1"
   <div class="container">
     <div class="section-head">
       <div>
-        <span class="eyebrow"><span class="dot"></span> The Menu</span>
-        <h2>Every cut.<br/><em>Fair priced.</em></h2>
+        <span class="eyebrow"><span class="dot"></span> <span data-i18n="svc.eyebrow">The Menu</span></span>
+        <h2 data-i18n="svc.h2">Every cut.<br/><em>Fair priced.</em></h2>
       </div>
-      <p class="sub">Honest, starting-from pricing. Master-barber work without the boutique markup. Walk in or pick your chair.</p>
+      <p class="sub" data-i18n="svc.sub">Honest, starting-from pricing. Master-barber work without the boutique markup. Walk in or pick your chair.</p>
     </div>
     <div class="services-list">
       <div class="svc">
-        <div class="svc-name">
+        <div class="svc-name" data-i18n="svc.1">
           Style Haircut w/ Eyebrows &amp; Beard <span class="svc-tag">Most Booked</span>
         </div>
-        <div class="svc-price"><span class="svc-from">from</span> $35</div>
+        <div class="svc-price"><span class="svc-from" data-i18n="svc.from">from</span> $35</div>
       </div>
       <div class="svc">
-        <div class="svc-name">
+        <div class="svc-name" data-i18n="svc.2">
           Style Haircut w/ Eyebrows
         </div>
-        <div class="svc-price"><span class="svc-from">from</span> $30</div>
+        <div class="svc-price"><span class="svc-from" data-i18n="svc.from">from</span> $30</div>
       </div>
       <div class="svc">
-        <div class="svc-name">
+        <div class="svc-name" data-i18n="svc.3">
           Regular Haircut w/ Eyebrows &amp; Beard
         </div>
-        <div class="svc-price"><span class="svc-from">from</span> $30</div>
+        <div class="svc-price"><span class="svc-from" data-i18n="svc.from">from</span> $30</div>
       </div>
       <div class="svc">
-        <div class="svc-name">
+        <div class="svc-name" data-i18n="svc.4">
           Regular Haircut w/ Eyebrows
           <small>Guard #1 &amp; Up</small>
         </div>
-        <div class="svc-price"><span class="svc-from">from</span> $25</div>
+        <div class="svc-price"><span class="svc-from" data-i18n="svc.from">from</span> $25</div>
       </div>
       <div class="svc">
-        <div class="svc-name">
+        <div class="svc-name" data-i18n="svc.5">
           Seniors Style Haircut
         </div>
-        <div class="svc-price"><span class="svc-from">from</span> $25</div>
+        <div class="svc-price"><span class="svc-from" data-i18n="svc.from">from</span> $25</div>
       </div>
       <div class="svc">
-        <div class="svc-name">
+        <div class="svc-name" data-i18n="svc.6">
           Seniors Regular Haircut
           <small>62 Years &amp; Up</small>
         </div>
-        <div class="svc-price"><span class="svc-from">from</span> $20</div>
+        <div class="svc-price"><span class="svc-from" data-i18n="svc.from">from</span> $20</div>
       </div>
       <div class="svc">
-        <div class="svc-name">
+        <div class="svc-name" data-i18n="svc.7">
           Children Style Haircut
         </div>
-        <div class="svc-price"><span class="svc-from">from</span> $25</div>
+        <div class="svc-price"><span class="svc-from" data-i18n="svc.from">from</span> $25</div>
       </div>
       <div class="svc">
-        <div class="svc-name">
+        <div class="svc-name" data-i18n="svc.8">
           Children Regular Haircut
           <small>1–6 Years</small>
         </div>
-        <div class="svc-price"><span class="svc-from">from</span> $20</div>
+        <div class="svc-price"><span class="svc-from" data-i18n="svc.from">from</span> $20</div>
       </div>
       <div class="svc">
-        <div class="svc-name">
+        <div class="svc-name" data-i18n="svc.9">
           Shape Up w/ Beard
         </div>
-        <div class="svc-price"><span class="svc-from">from</span> $18</div>
+        <div class="svc-price"><span class="svc-from" data-i18n="svc.from">from</span> $18</div>
       </div>
       <div class="svc">
-        <div class="svc-name">
+        <div class="svc-name" data-i18n="svc.10">
           Shape Up
         </div>
-        <div class="svc-price"><span class="svc-from">from</span> $10</div>
+        <div class="svc-price"><span class="svc-from" data-i18n="svc.from">from</span> $10</div>
       </div>
       <div class="svc">
-        <div class="svc-name">
+        <div class="svc-name" data-i18n="svc.11">
           Beard
         </div>
-        <div class="svc-price"><span class="svc-from">from</span> $10</div>
+        <div class="svc-price"><span class="svc-from" data-i18n="svc.from">from</span> $10</div>
       </div>
       <div class="svc">
-        <div class="svc-name">
+        <div class="svc-name" data-i18n="svc.12">
           Eyebrows
         </div>
-        <div class="svc-price"><span class="svc-from">from</span> $5</div>
+        <div class="svc-price"><span class="svc-from" data-i18n="svc.from">from</span> $5</div>
       </div>
     </div>
-    <p class="svc-addons"><span>Ask your barber for</span> Designs · Hot Towel Shaves · Shape Up Enhancements · Hair Color · Beard Dye</p>
+    <p class="svc-addons" data-i18n="svc.addons"><span>Ask your barber for</span> Designs · Hot Towel Shaves · Shape Up Enhancements · Hair Color · Beard Dye</p>
   </div>
 </section>
 
@@ -320,10 +324,10 @@ src="https://www.facebook.com/tr?id=1699302127751630&ev=PageView&noscript=1"
   <div class="container">
     <div class="section-head">
       <div>
-        <span class="eyebrow"><span class="dot"></span> Meet The Team · $20 Tue &amp; Wed</span>
-        <h2>Pick your<br/>barber. <em>Book direct.</em></h2>
+        <span class="eyebrow"><span class="dot"></span> <span data-i18n="barbers.eyebrow">Meet The Team · $20 Tue &amp; Wed</span></span>
+        <h2 data-i18n="barbers.h2">Pick your<br/>barber. <em>Book direct.</em></h2>
       </div>
-      <p class="sub">Every barber on the floor has years on the clippers and a portfolio that does the talking. Tap a card to lock in your chair — and if you're a new client, grab the $20 cut every Tuesday &amp; Wednesday.</p>
+      <p class="sub" data-i18n="barbers.sub">Every barber on the floor has years on the clippers and a portfolio that does the talking. Tap a card to lock in your chair — and if you're a new client, grab the $20 cut every Tuesday &amp; Wednesday.</p>
     </div>
     <div class="barbers-grid" id="barbersGrid"></div>
   </div>
@@ -334,10 +338,10 @@ src="https://www.facebook.com/tr?id=1699302127751630&ev=PageView&noscript=1"
   <div class="container">
     <div class="section-head">
       <div>
-        <span class="eyebrow"><span class="dot"></span> The Work</span>
-        <h2>Straight from<br/><em>the chair.</em></h2>
+        <span class="eyebrow"><span class="dot"></span> <span data-i18n="gallery.eyebrow">The Work</span></span>
+        <h2 data-i18n="gallery.h2">Straight from<br/><em>the chair.</em></h2>
       </div>
-      <p class="sub">Recent cuts from our barbers. Follow the daily drops <a href="https://instagram.com/family.barbershop" target="_blank" rel="noopener" style="color:var(--red);text-decoration:underline;text-underline-offset:3px">@family.barbershop</a>.</p>
+      <p class="sub" data-i18n="gallery.sub">Recent cuts from our barbers. Follow the daily drops <a href="https://instagram.com/family.barbershop" target="_blank" rel="noopener" style="color:var(--red);text-decoration:underline;text-underline-offset:3px">@family.barbershop</a>.</p>
     </div>
     <div class="gallery-grid" id="galleryGrid"></div>
   </div>
@@ -348,25 +352,25 @@ src="https://www.facebook.com/tr?id=1699302127751630&ev=PageView&noscript=1"
   <div class="container">
     <div class="section-head">
       <div>
-        <span class="eyebrow"><span class="dot"></span> Reviews</span>
-        <h2>What our<br/>regulars <em>say.</em></h2>
+        <span class="eyebrow"><span class="dot"></span> <span data-i18n="t.eyebrow">Reviews</span></span>
+        <h2 data-i18n="t.h2">What our<br/>regulars <em>say.</em></h2>
       </div>
-      <p class="sub">Five-star Google reviews don't lie. Here's three of them.</p>
+      <p class="sub" data-i18n="t.sub">Five-star Google reviews don't lie. Here's three of them.</p>
     </div>
     <div class="tg">
       <figure class="t-card">
         <div class="stars">★★★★★</div>
-        <blockquote>"Family Barbershop never disappoints. Great environment, skilled barbers, and top-notch service. They make sure you walk out looking your best. Highly recommended."</blockquote>
+        <blockquote data-i18n="t.r1">"Family Barbershop never disappoints. Great environment, skilled barbers, and top-notch service. They make sure you walk out looking your best. Highly recommended."</blockquote>
         <figcaption>— Bryan M.</figcaption>
       </figure>
       <figure class="t-card">
         <div class="stars">★★★★★</div>
-        <blockquote>"I've been coming to this barbershop for over 5 years. The attention to detail and care they put into every cut really sets them apart. They treat you like family!"</blockquote>
+        <blockquote data-i18n="t.r2">"I've been coming to this barbershop for over 5 years. The attention to detail and care they put into every cut really sets them apart. They treat you like family!"</blockquote>
         <figcaption>— Eliott A.</figcaption>
       </figure>
       <figure class="t-card">
         <div class="stars">★★★★★</div>
-        <blockquote>"One of the best barbershops in Kissimmee. The people here are funny, friendly, the music is always a vibe. 10/10 most definitely recommend coming here."</blockquote>
+        <blockquote data-i18n="t.r3">"One of the best barbershops in Kissimmee. The people here are funny, friendly, the music is always a vibe. 10/10 most definitely recommend coming here."</blockquote>
         <figcaption>— Daniel R.</figcaption>
       </figure>
     </div>
@@ -377,20 +381,20 @@ src="https://www.facebook.com/tr?id=1699302127751630&ev=PageView&noscript=1"
 <section id="visit" class="section visit">
   <div class="container visit-grid">
     <div>
-      <span class="eyebrow"><span class="dot"></span> Visit Us</span>
-      <h2 style="margin-top:14px">Walk in,<br/>or <em>book ahead.</em></h2>
-      <p class="sub">Walk-ins welcome — but booking guarantees your chair with your favorite barber.</p>
+      <span class="eyebrow"><span class="dot"></span> <span data-i18n="visit.eyebrow">Visit Us</span></span>
+      <h2 style="margin-top:14px" data-i18n="visit.h2">Walk in,<br/>or <em>book ahead.</em></h2>
+      <p class="sub" data-i18n="visit.sub">Walk-ins welcome — but booking guarantees your chair with your favorite barber.</p>
       <ul class="visit-info">
-        <li><strong>Address</strong><span>2611 Simpson Rd<br/>Kissimmee, FL 34744</span></li>
-        <li><strong>Hours</strong><span>Mon – Sat &nbsp; 9 AM – 7 PM<br/>Sun &nbsp; 10 AM – 2 PM</span></li>
-        <li><strong>Phone</strong><span><a href="tel:+14079786879">(407) 978-6879</a></span></li>
+        <li><strong data-i18n="visit.addr">Address</strong><span>2611 Simpson Rd<br/>Kissimmee, FL 34744</span></li>
+        <li><strong data-i18n="visit.hours">Hours</strong><span data-i18n="visit.hoursv">Mon – Sat &nbsp; 9 AM – 7 PM<br/>Sun &nbsp; 10 AM – 2 PM</span></li>
+        <li><strong data-i18n="visit.phone">Phone</strong><span><a href="tel:+14079786879">(407) 978-6879</a></span></li>
         <li><strong>Instagram</strong><span><a href="https://instagram.com/family.barbershop" target="_blank" rel="noopener">@family.barbershop</a></span></li>
       </ul>
       <div class="visit-cta">
-        <a href="#barbers" class="btn btn-primary">Book Now</a>
+        <a href="#barbers" class="btn btn-primary" data-i18n="nav.book">Book Now</a>
         <a href="https://maps.google.com/?q=2611+Simpson+Rd+Kissimmee+FL" target="_blank" rel="noopener" class="btn btn-ghost">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Directions
+          <span data-i18n="visit.dir">Directions</span>
         </a>
       </div>
     </div>
@@ -415,7 +419,7 @@ src="https://www.facebook.com/tr?id=1699302127751630&ev=PageView&noscript=1"
         <img src="img/logo.png" alt="Family Barbershop" />
       </span>
     </a>
-    <p>© 2026 Family Barbershop · All rights reserved.</p>
+    <p data-i18n="footer.rights">© 2026 Family Barbershop · All rights reserved.</p>
     <p class="tiny">Site by <strong>iLaunch U</strong></p>
   </div>
 </footer>
@@ -437,13 +441,13 @@ src="https://www.facebook.com/tr?id=1699302127751630&ev=PageView&noscript=1"
     <div class="modal-head">
       <div class="m-avatar" id="mAvatar" aria-hidden="true"></div>
       <div>
-        <span class="eyebrow"><span class="dot"></span> Book With</span>
+        <span class="eyebrow"><span class="dot"></span> <span data-i18n="modal.book">Book With</span></span>
         <h3 id="bookTitle">Barber</h3>
         <p id="mSpec" class="m-spec"></p>
       </div>
     </div>
     <div class="book-embed" id="bookEmbed" aria-live="polite"></div>
-    <a class="book-newtab" id="bookNewTab" target="_blank" rel="noopener">Trouble loading? Open booking in a new tab →</a>
+    <a class="book-newtab" id="bookNewTab" target="_blank" rel="noopener" data-i18n="modal.newtab">Trouble loading? Open booking in a new tab →</a>
   </div>
 </div>
 
@@ -466,7 +470,7 @@ src="https://www.facebook.com/tr?id=1699302127751630&ev=PageView&noscript=1"
     <button class="modal-close" data-bts-close aria-label="Close">×</button>
     <div class="bts-popup-visual" aria-hidden="true">
       <div class="bts-popup-slides" id="btsPopupSlides">
-        <img src="img/bts/site_kid_chair.jpg" alt="" class="is-on"/>
+        <img src="img/bts/site_hero_kid.jpg" alt="" class="is-on"/>
         <img src="img/bts/site_design_cut.jpg" alt="" loading="lazy"/>
         <img src="img/bts/site_teen_taper.jpg" alt="" loading="lazy"/>
       </div>
@@ -508,6 +512,6 @@ src="https://www.facebook.com/tr?id=1699302127751630&ev=PageView&noscript=1"
 
 <script src="https://api.leadconnectorhq.com/js/form_embed.js" type="text/javascript"></script>
 <script src="barbers-data.js?v=13"></script>
-<script src="app.js?v=32"></script>
+<script src="app.js?v=33"></script>
 </body>
 </html>

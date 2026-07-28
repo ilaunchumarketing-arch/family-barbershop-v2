@@ -3,6 +3,39 @@
 /* Barber roster now lives in barbers-data.js (shared with the Styles page). */
 const BARBERS = window.FB_BARBERS || [];
 
+/* ============ SITE LANGUAGE (EN/ES) ============ */
+/* SITE_LANG drives every dynamically-rendered string (barber tiles, profile
+   modal, chairs tag). Static page text swaps via [data-i18n] — see the
+   SITE I18N engine at the bottom of this file. Shares the `fb_home_lang`
+   key + `data-bts-lang-btn` buttons with the back-to-school block. */
+let SITE_LANG = 'en';
+try {
+  SITE_LANG = localStorage.getItem('fb_home_lang')
+    || (((navigator.language || '').toLowerCase().startsWith('es')) ? 'es' : 'en');
+} catch(e){}
+if(SITE_LANG !== 'es') SITE_LANG = 'en';
+
+const T = {
+  en: {
+    masterBarber: 'Master Barber', viewProfile: 'View Profile',
+    yrsExp: 'years experience', bookWith: 'Book with',
+    work: 'Work', recentCuts: 'recent cuts',
+    soonA: 'Online booking for', soonB: 'is coming soon. Call',
+    chairOne: ' Chair Open Now', chairMany: ' Chairs Open Now',
+    status: { 'Open Today': 'Open Today', 'Next 4:45': 'Next 4:45' }
+  },
+  es: {
+    masterBarber: 'Barbero Máster', viewProfile: 'Ver Perfil',
+    yrsExp: 'años de experiencia', bookWith: 'Agenda con',
+    work: 'Trabajos', recentCuts: 'cortes recientes',
+    soonA: 'La reservación en línea de', soonB: 'llega pronto. Llama al',
+    chairOne: ' silla disponible ahora', chairMany: ' sillas disponibles ahora',
+    status: { 'Open Today': 'Abierto hoy', 'Next 4:45': 'Próx. 4:45' }
+  }
+};
+function SL(){ return T[SITE_LANG]; }
+function statusLabel(b){ return SL().status[b.statusText] || b.statusText; }
+
 /* Build a tel: link from a US phone string like "(407) 242-3301" */
 function telLink(phone){
   return '+1' + (phone || '').replace(/\D/g,'');
@@ -45,7 +78,7 @@ function fbTrack(eventName, custom){
 const grid = document.getElementById('barbersGrid');
 
 function masterBadge(){
-  return `<span class="b-tile-master"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M12 2l2.6 6.6L22 9.3l-5.5 4.8L18.2 22 12 18.3 5.8 22l1.7-7.9L2 9.3l7.4-.7L12 2z"/></svg> Master Barber</span>`;
+  return `<span class="b-tile-master"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M12 2l2.6 6.6L22 9.3l-5.5 4.8L18.2 22 12 18.3 5.8 22l1.7-7.9L2 9.3l7.4-.7L12 2z"/></svg> ${SL().masterBarber}</span>`;
 }
 
 function renderTile(b){
@@ -55,14 +88,14 @@ function renderTile(b){
       <img src="${b.photo}" alt="${b.name}, ${b.specialty}" loading="lazy" />
       <div class="b-tile-info">
         <div class="b-tile-id">
-          ${b.featured ? `<span class="b-tile-cred"><svg viewBox="0 0 24 24" fill="currentColor" width="11" height="11"><path d="M12 2l2.6 6.6L22 9.3l-5.5 4.8L18.2 22 12 18.3 5.8 22l1.7-7.9L2 9.3l7.4-.7L12 2z"/></svg> Master Barber</span>` : ''}
+          ${b.featured ? `<span class="b-tile-cred"><svg viewBox="0 0 24 24" fill="currentColor" width="11" height="11"><path d="M12 2l2.6 6.6L22 9.3l-5.5 4.8L18.2 22 12 18.3 5.8 22l1.7-7.9L2 9.3l7.4-.7L12 2z"/></svg> ${SL().masterBarber}</span>` : ''}
           <h3>${b.name}</h3>
           <span class="b-tile-spec">${b.specialty}</span>
         </div>
       </div>
     </div>
-    <div class="b-tile-statusbar"><span class="status ${b.status}">${b.statusText}</span></div>
-    <span class="b-tile-cta">View Profile
+    <div class="b-tile-statusbar"><span class="status ${b.status}">${statusLabel(b)}</span></div>
+    <span class="b-tile-cta">${SL().viewProfile}
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
     </span>
   </button>`;
@@ -78,12 +111,12 @@ function buildProfileHTML(b){
   return `
     <div class="bp-top">
       <div class="bp-photo">
-        <span class="status ${b.status}">${b.statusText}</span>
+        <span class="status ${b.status}">${statusLabel(b)}</span>
         ${b.featured ? masterBadge() : ''}
         <img src="${b.photo}" alt="${b.name}, ${b.specialty}" />
       </div>
       <div class="bp-info">
-        ${b.years ? `<span class="bp-eyebrow"><span class="dot"></span> ${b.years} years experience</span>` : ''}
+        ${b.years ? `<span class="bp-eyebrow"><span class="dot"></span> ${b.years} ${SL().yrsExp}</span>` : ''}
         <h3 class="bp-name">${b.name}</h3>
         <div class="bp-spec">${b.specialty}</div>
         <p class="bp-bio">${b.bio}</p>
@@ -97,16 +130,16 @@ function buildProfileHTML(b){
             @${b.instagram}
           </a>
         </div>
-        <button class="barber-book bp-book" data-book="${b.id}" aria-label="Book with ${b.name}">
-          Book with ${b.name.split(' ')[0]}
+        <button class="barber-book bp-book" data-book="${b.id}" aria-label="${SL().bookWith} ${b.name}">
+          ${SL().bookWith} ${b.name.split(' ')[0]}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </button>
       </div>
     </div>
     ${hasRealCuts(b) ? `
     <div class="bp-gallery-head">
-      <h4>${b.name.split(' ')[0]}'s Work</h4>
-      <span>${b.cuts.length} recent cuts</span>
+      <h4>${b.name.split(' ')[0]} · ${SL().work}</h4>
+      <span>${b.cuts.length} ${SL().recentCuts}</span>
     </div>
     <div class="bp-gallery">
       ${b.cuts.map(c => `<div class="bp-shot"><img src="${c}" alt="Recent cut by ${b.name}" loading="lazy"/></div>`).join('')}
@@ -199,8 +232,8 @@ function openModal(barberId){
     bookNewTab.style.display = '';
   } else {
     bookEmbed.innerHTML =
-      `<p class="tiny center" style="padding:40px 0">Online booking for ${b.name} is coming soon. `
-      + `Call <a href="tel:${telLink(b.phone)}" style="color:var(--red)">${b.phone}</a> to book.</p>`;
+      `<p class="tiny center" style="padding:40px 0">${SL().soonA} ${b.name} ${SL().soonB} `
+      + `<a href="tel:${telLink(b.phone)}" style="color:var(--red)">${b.phone}</a>.</p>`;
     bookNewTab.style.display = 'none';
   }
 
@@ -444,10 +477,11 @@ window.addEventListener('scroll', () => {
     if(tag) tag.style.display = open ? '' : 'none';
     if(!open) return;
     const n = COUNTS[now.getHours() % COUNTS.length];
-    el.textContent = n + (n === 1 ? ' Chair Open Now' : ' Chairs Open Now');
+    el.textContent = n + (n === 1 ? SL().chairOne : SL().chairMany);
   }
   update();
   setInterval(update, 60 * 1000); // re-check each minute so it flips on the hour
+  window.__fbChairsUpdate = update; // re-run on language switch
 })();
 
 /* ============ BACK TO SCHOOL PROMO (Aug 3–8) — section + opening popup ============ */
@@ -593,4 +627,122 @@ window.addEventListener('scroll', () => {
   }
 
   applyBtsLang(initialLang);
+})();
+
+/* ============ SITE I18N ENGINE (whole-page EN/ES toggle) ============ */
+/* Static text swaps via [data-i18n] keys (EN lives in the markup and is
+   cached on first switch; ES lives here, PR-adapted — never literal).
+   Dynamic templates (barber tiles, profile modal, chairs tag) read
+   SITE_LANG/T at render time and re-render on switch. The back-to-school
+   popup/section spans switch via html[data-bts-lang] in their own block —
+   the same buttons drive both. */
+(function(){
+  const ES = {
+    'nav.barbers': 'Barberos',
+    'nav.services': 'Servicios',
+    'nav.work': 'Trabajos',
+    'nav.visit': 'Visítanos',
+    'nav.book': 'Reserva Ya',
+    'hero.eyebrow': 'Kissimmee, FL · Desde 2016',
+    'hero.h1': 'Cortes<br/>limpios.<br/><em>Barberos</em> reales.',
+    'hero.lead': 'Diez barberos máster bajo un mismo techo. Escoge tu artista, mira su trabajo y reserva tu silla — en menos de un minuto, sin llamadas.',
+    'hero.dealbadge': 'Mar y Miér',
+    'hero.dealtext': '<strong>$20</strong> Todos los cortes · Solo clientes nuevos',
+    'cta.pick': 'Escoge tu barbero',
+    'hero.meta1': 'Barberos Máster',
+    'hero.days': 'DÍAS',
+    'hero.meta2': 'Lun – Dom',
+    'sticker.days': 'Mar y Miér',
+    'sticker.new': 'Clientes Nuevos',
+    'offer.eyebrow': 'Especial de martes y miércoles',
+    'offer.title': 'Todos<br/>los cortes',
+    'offer.incl': 'Clientes nuevos · Niños y adultos · Cejas incluidas',
+    'offer.pill1': 'Solo clientes nuevos',
+    'offer.pill2': '+ Añade barba = <strong>$25</strong>',
+    'offer.days': 'Todos los mar y miér · 9 AM – 7 PM',
+    'offer.fine': 'El especial de $20 es solo para clientes nuevos · 2611 Simpson Rd, Kissimmee FL 34744 · Llega sin cita — reservar te asegura la silla.',
+    'marquee.1': '<span>Martes y miércoles</span><span>$20 todos los cortes</span><span>Solo clientes nuevos</span><span>Cejas incluidas</span><span>Niños y adultos</span><span>Añade barba $25</span><span>Reserva tu silla</span><span>Martes y miércoles</span><span>$20 todos los cortes</span><span>Solo clientes nuevos</span><span>Cejas incluidas</span><span>Niños y adultos</span><span>Añade barba $25</span><span>Reserva tu silla</span>',
+    'marquee.2': '<span>Solo barberos máster</span><span>Walk-ins bienvenidos</span><span>Abierto 7 días</span><span>Citas el mismo día</span><span>2611 Simpson Rd</span><span>Kissimmee, FL</span><span>Solo barberos máster</span><span>Walk-ins bienvenidos</span><span>Abierto 7 días</span><span>Citas el mismo día</span><span>2611 Simpson Rd</span><span>Kissimmee, FL</span>',
+    'svc.eyebrow': 'El Menú',
+    'svc.h2': 'Cada corte.<br/><em>Precio justo.</em>',
+    'svc.sub': 'Precios honestos, "desde". Trabajo de barbero máster sin el precio de boutique. Llega sin cita o escoge tu silla.',
+    'svc.1': 'Corte estilo c/ cejas y barba <span class="svc-tag">El más pedido</span>',
+    'svc.2': 'Corte estilo c/ cejas',
+    'svc.3': 'Corte regular c/ cejas y barba',
+    'svc.4': 'Corte regular c/ cejas <small>Guardia #1 en adelante</small>',
+    'svc.5': 'Corte estilo seniors',
+    'svc.6': 'Corte regular seniors <small>62 años o más</small>',
+    'svc.7': 'Corte estilo niños',
+    'svc.8': 'Corte regular niños <small>1–6 años</small>',
+    'svc.9': 'Recorte de línea c/ barba',
+    'svc.10': 'Recorte de línea',
+    'svc.11': 'Barba',
+    'svc.12': 'Cejas',
+    'svc.from': 'desde',
+    'svc.addons': '<span>Pregúntale a tu barbero por</span> Diseños · Toalla caliente · Perfilado extra · Tinte de pelo · Tinte de barba',
+    'barbers.eyebrow': 'Conoce al equipo · $20 mar y miér',
+    'barbers.h2': 'Escoge tu<br/>barbero. <em>Agenda directo.</em>',
+    'barbers.sub': 'Cada barbero en el piso tiene años de clíper y un portafolio que habla por él. Toca una tarjeta para asegurar tu silla — y si eres cliente nuevo, aprovecha el corte de $20 los martes y miércoles.',
+    'gallery.eyebrow': 'El Trabajo',
+    'gallery.h2': 'Directo de<br/><em>la silla.</em>',
+    'gallery.sub': 'Cortes recientes de nuestros barberos. Sigue los drops diarios <a href="https://instagram.com/family.barbershop" target="_blank" rel="noopener" style="color:var(--red);text-decoration:underline;text-underline-offset:3px">@family.barbershop</a>.',
+    't.eyebrow': 'Reseñas',
+    't.h2': 'Lo que dicen<br/>nuestros <em>clientes.</em>',
+    't.sub': 'Las reseñas de 5 estrellas en Google no mienten. Aquí van tres.',
+    't.r1': '"Family Barbershop nunca falla. Buen ambiente, barberos con talento y un servicio de primera. Se aseguran de que salgas luciendo lo mejor posible. Súper recomendado."',
+    't.r2': '"Llevo más de 5 años viniendo a esta barbería. El detalle y el cariño que le ponen a cada corte los distingue. ¡Te tratan como familia!"',
+    't.r3': '"Una de las mejores barberías de Kissimmee. La gente aquí es chévere, amigable, y la música siempre es un vibe. 10/10, definitivamente recomiendo venir."',
+    'visit.eyebrow': 'Visítanos',
+    'visit.h2': 'Llega sin cita,<br/>o <em>reserva antes.</em>',
+    'visit.sub': 'Aceptamos walk-ins — pero reservar te garantiza la silla con tu barbero favorito.',
+    'visit.addr': 'Dirección',
+    'visit.hours': 'Horario',
+    'visit.hoursv': 'Lun – Sáb &nbsp; 9 AM – 7 PM<br/>Dom &nbsp; 10 AM – 2 PM',
+    'visit.phone': 'Teléfono',
+    'visit.dir': 'Cómo llegar',
+    'footer.rights': '© 2026 Family Barbershop · Todos los derechos reservados.',
+    'modal.book': 'Agenda Con',
+    'modal.newtab': '¿Problemas para cargar? Abre la reservación en otra pestaña →'
+  };
+
+  const EN_CACHE = new Map();
+  function cacheEN(){
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      if(!EN_CACHE.has(el)) EN_CACHE.set(el, el.innerHTML);
+    });
+  }
+
+  function applySiteLang(lang){
+    SITE_LANG = (lang === 'es') ? 'es' : 'en';
+    cacheEN();
+    document.documentElement.lang = SITE_LANG;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if(SITE_LANG === 'es' && ES[key] != null) el.innerHTML = ES[key];
+      else if(EN_CACHE.has(el)) el.innerHTML = EN_CACHE.get(el);
+    });
+    // re-render everything template-driven in the new language
+    if(grid) grid.innerHTML = BARBERS.map(renderTile).join('');
+    if(typeof window.__fbChairsUpdate === 'function') window.__fbChairsUpdate();
+    // if a profile is open, rebuild it in the new language
+    if(profileModal.classList.contains('open')){
+      const openBook = profileBody.querySelector('[data-book]');
+      if(openBook){
+        const b = BARBERS.find(x => x.id === openBook.getAttribute('data-book'));
+        if(b){ profileBody.innerHTML = buildProfileHTML(b); bindProfileGallery(); }
+      }
+    }
+    try { localStorage.setItem('fb_home_lang', SITE_LANG); } catch(e){}
+  }
+
+  // The BTS block owns the [data-bts-lang-btn] click (popup/section spans +
+  // countdown + .is-on states); this listener adds the whole-page swap on the
+  // same buttons.
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-bts-lang-btn]');
+    if(btn) applySiteLang(btn.getAttribute('data-bts-lang-btn'));
+  });
+
+  cacheEN();
+  if(SITE_LANG === 'es') applySiteLang('es');
 })();

@@ -2016,3 +2016,9 @@ html[data-bts-lang="es"] .bts-popup [data-en]{ display:none !important; }
   .bts-popup-panel{ transition:none; }
   .bts-popup-slides img{ transition:none; }
 }
+
+/* nav language toggle */
+.nav-lang{ flex:none; }
+@media (max-width: 480px){
+  .nav-lang button{ padding:6px 10px; }
+}
