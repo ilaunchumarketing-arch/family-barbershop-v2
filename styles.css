@@ -1871,3 +1871,148 @@ section[id]{ scroll-margin-top:96px; }
   .offer-cta{width:100%}
   .offer-cta .btn{flex:1 1 auto;justify-content:center}
 }
+
+/* ============ BACK TO SCHOOL (Aug 3–8 promo — section + opening popup) ============ */
+
+/* Scoped EN/ES toggle. Text lives in <span data-en>/<span data-es> pairs inside
+   .bts and .bts-popup only (the rest of the homepage stays EN). The !important
+   guards stop element-specific display rules from leaking both languages —
+   see the GF Business bilingual-toggle lesson. */
+.bts [data-es], .bts-popup [data-es]{ display:none !important; }
+html[data-bts-lang="es"] .bts [data-es],
+html[data-bts-lang="es"] .bts-popup [data-es]{ display:inline !important; }
+html[data-bts-lang="es"] .bts [data-en],
+html[data-bts-lang="es"] .bts-popup [data-en]{ display:none !important; }
+
+.bts-lang{
+  display:inline-flex; gap:4px; padding:4px;
+  background:var(--surface); border:1px solid var(--line); border-radius:999px;
+}
+.bts-lang button{
+  font-family:var(--ff-body); font-size:11px; font-weight:800; letter-spacing:.12em;
+  color:var(--muted); background:none; border:0; border-radius:999px;
+  padding:6px 14px; cursor:pointer; transition:color .2s, background .2s;
+  min-height:28px;
+}
+.bts-lang button:hover{ color:var(--text-2); }
+.bts-lang button.is-on{ background:var(--red); color:#fff; }
+.bts-lang button:focus-visible{ outline:2px solid var(--blue); outline-offset:2px; }
+
+/* --- Section --- */
+.bts{ position:relative; }
+.bts > .container > .bts-lang{ margin-bottom:18px; }
+.bts .section-head{ margin-bottom:34px; }
+
+.bts-flyers{
+  display:grid; grid-template-columns:repeat(3, 1fr); gap:18px;
+}
+.bts-flyer{
+  position:relative; border-radius:var(--radius-lg); overflow:hidden;
+  border:1px solid var(--line-2); background:var(--surface);
+  cursor:pointer; transition:border-color .25s, box-shadow .25s;
+  aspect-ratio:4/5;
+}
+.bts-flyer img{ width:100%; height:100%; object-fit:cover; display:block; }
+.bts-flyer:hover, .bts-flyer:focus-visible{
+  border-color:var(--red); box-shadow:0 12px 40px rgba(255,39,64,.22);
+  outline:none;
+}
+
+.bts-scarcity{
+  display:flex; flex-wrap:wrap; align-items:center; gap:14px;
+  margin-top:26px;
+}
+.bts-pill{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:9px 16px; border-radius:999px;
+  background:rgba(255,39,64,.12); border:1px solid rgba(255,39,64,.45);
+  font-family:var(--ff-body); font-size:12px; font-weight:800;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--red);
+}
+.bts-count{
+  font-family:var(--ff-body); font-size:13px; font-weight:600; color:var(--text-2);
+}
+.bts-count strong{ color:var(--gold); font-weight:800; }
+
+.bts-cta{ display:flex; flex-wrap:wrap; gap:14px; margin-top:26px; }
+.bts-fine{ margin-top:18px; }
+
+/* --- Opening popup --- */
+.bts-popup .modal-backdrop{ backdrop-filter:blur(4px); }
+.bts-popup-panel{
+  position:relative; z-index:2;
+  width:min(880px, calc(100vw - 32px));
+  max-height:calc(100dvh - 48px);
+  display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  background:var(--bg-2); border:1px solid var(--line-2);
+  border-radius:var(--radius-lg); overflow:hidden;
+  box-shadow:0 40px 120px rgba(0,0,0,.65);
+  opacity:0; transform:translateY(18px) scale(.97);
+  transition:opacity .3s var(--ease), transform .3s var(--ease);
+}
+.bts-popup.open .bts-popup-panel{ opacity:1; transform:none; }
+.bts-popup .modal-close{ z-index:6; }
+
+.bts-popup-visual{ position:relative; min-height:100%; background:#000; }
+.bts-popup-slides{ position:absolute; inset:0; }
+.bts-popup-slides img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  opacity:0; transition:opacity .6s ease;
+}
+.bts-popup-slides img.is-on{ opacity:1; }
+.bts-popup-dots{
+  position:absolute; left:0; right:0; bottom:12px; z-index:3;
+  display:flex; justify-content:center; gap:8px;
+}
+.bts-popup-dots button{
+  width:8px; height:8px; border-radius:50%; border:0; padding:0;
+  background:rgba(255,255,255,.35); cursor:pointer; transition:background .2s, transform .2s;
+}
+.bts-popup-dots button.is-on{ background:var(--red); transform:scale(1.3); }
+
+.bts-popup-copy{
+  padding:clamp(22px, 4vw, 40px);
+  display:flex; flex-direction:column; align-items:flex-start; gap:14px;
+}
+.bts-lang-popup{ align-self:flex-end; margin-bottom:-6px; }
+.bts-popup-title{
+  font-family:var(--ff-display); font-size:clamp(26px, 3.4vw, 40px);
+  line-height:1.04; text-transform:uppercase; letter-spacing:.01em; color:var(--text);
+  margin:0;
+}
+.bts-popup-title em{ font-family:var(--ff-serif); font-style:italic; color:var(--red); }
+.bts-popup-deal{
+  display:flex; align-items:center; gap:16px;
+  padding:14px 18px; border-radius:var(--radius-lg);
+  background:var(--surface); border:1px solid var(--line-2);
+}
+.bts-popup-price{
+  font-family:var(--ff-display); font-size:clamp(40px, 5vw, 56px);
+  color:var(--gold); line-height:1;
+}
+.bts-popup-what{
+  font-family:var(--ff-body); font-size:14px; line-height:1.4; color:var(--text-2);
+}
+.bts-popup-what strong{ color:var(--text); }
+.bts-scarcity-popup{ margin-top:0; }
+.bts-popup-cta{ width:100%; justify-content:center; }
+.bts-popup-fine{
+  font-family:var(--ff-body); font-size:11px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--muted); margin:0;
+}
+
+@media (max-width: 860px){
+  .bts-flyers{ grid-template-columns:1fr; gap:14px; max-width:440px; }
+  .bts-popup-panel{
+    grid-template-columns:1fr;
+    width:min(440px, calc(100vw - 28px));
+    overflow-y:auto;
+  }
+  .bts-popup-visual{ min-height:0; aspect-ratio:4/5; position:relative; }
+  .bts-popup-copy{ padding:20px 20px 24px; }
+  .bts-lang-popup{ position:absolute; top:12px; left:12px; z-index:5; align-self:auto; margin:0; background:rgba(10,11,20,.8); }
+}
+@media (prefers-reduced-motion: reduce){
+  .bts-popup-panel{ transition:none; }
+  .bts-popup-slides img{ transition:none; }
+}

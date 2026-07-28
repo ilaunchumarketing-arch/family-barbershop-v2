@@ -26,7 +26,8 @@ src="https://www.facebook.com/tr?id=1699302127751630&ev=PageView&noscript=1"
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=21" />
+<link rel="stylesheet" href="styles.css?v=22" />
+<link rel="icon" type="image/png" href="img/logo.png" />
 </head>
 <body>
 
@@ -98,6 +99,56 @@ src="https://www.facebook.com/tr?id=1699302127751630&ev=PageView&noscript=1"
         <span id="chairsOpenTag">Chairs Open Now</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- BACK TO SCHOOL (Aug 3–8 · $20 cut + brows · students 16 & under) -->
+<section id="back-to-school" class="section bts" data-bts-expires>
+  <div class="container">
+    <div class="bts-lang" role="group" aria-label="Language / Idioma">
+      <button type="button" data-bts-lang-btn="en" class="is-on">EN</button>
+      <button type="button" data-bts-lang-btn="es">ES</button>
+    </div>
+    <div class="section-head">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>
+          <span data-en>Back to School · Aug 3–8</span><span data-es>Regreso a Clases · 3–8 de Agosto</span>
+        </span>
+        <h2>
+          <span data-en>First day.<br/><em>First impression.</em></span>
+          <span data-es>Primer día.<br/><em>Primera impresión.</em></span>
+        </h2>
+      </div>
+      <p class="sub">
+        <span data-en>Parents — don't send them back with the summer haircut. <strong>Aug 3–8</strong>, students 16 &amp; under get a <strong>cut + brows for $20</strong> with any of our barbers. New clients only — when the week's chairs fill up, that's it.</span>
+        <span data-es>Papá, mamá — no los mandes de regreso con el corte del verano. <strong>Del 3 al 8 de agosto</strong>, estudiantes hasta 16 años: <strong>corte + cejas por $20</strong> con cualquiera de nuestros barberos. Solo clientes nuevos — cuando se llenan las sillas de la semana, se acabó.</span>
+      </p>
+    </div>
+    <div class="bts-flyers" id="btsFlyers">
+      <div class="bts-flyer" role="button" tabindex="0" aria-label="Back-to-school flyer 1"><img src="img/bts/bts_firstday.jpg" alt="Family Barbershop back-to-school special — $20 cut + brows, students up to 16, Aug 3–8, new clients only" loading="lazy"/></div>
+      <div class="bts-flyer" role="button" tabindex="0" aria-label="Back-to-school flyer 2"><img src="img/bts/bts_newgrade.jpg" alt="Nuevo grado, nuevo corte — $20 corte + cejas, estudiantes hasta 16 años, del 3 al 8 de agosto" loading="lazy"/></div>
+      <div class="bts-flyer" role="button" tabindex="0" aria-label="Back-to-school flyer 3"><img src="img/bts/bts_impression.jpg" alt="Primer día, primera impresión — $20 corte + cejas en Family Barbershop Kissimmee" loading="lazy"/></div>
+    </div>
+    <div class="bts-scarcity">
+      <span class="bts-pill">
+        <span class="pulse"></span>
+        <span data-en>Limited spots</span><span data-es>Cupos limitados</span>
+      </span>
+      <span class="bts-count" data-bts-countdown aria-live="polite"></span>
+    </div>
+    <div class="bts-cta">
+      <a href="#barbers" class="btn btn-primary">
+        <span data-en>Reserve Your Chair</span><span data-es>Reserva Tu Silla</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a href="/back-to-school" class="btn btn-ghost">
+        <span data-en>See the full offer</span><span data-es>Ver la oferta completa</span>
+      </a>
+    </div>
+    <p class="offer-fine bts-fine">
+      <span data-en>$20 cut + brows · students 16 &amp; under · Aug 3–8 · new clients only · 2611 Simpson Rd, Kissimmee FL</span>
+      <span data-es>$20 corte + cejas · estudiantes hasta 16 años · del 3 al 8 de agosto · solo clientes nuevos · 2611 Simpson Rd, Kissimmee FL</span>
+    </p>
   </div>
 </section>
 
@@ -408,8 +459,55 @@ src="https://www.facebook.com/tr?id=1699302127751630&ev=PageView&noscript=1"
   <div class="lb-hint" aria-hidden="true">Scroll / pinch to zoom · &larr; &rarr; to navigate</div>
 </div>
 
+<!-- BACK-TO-SCHOOL OPENING POPUP (auto-shows Jul→Aug 8, once per session) -->
+<div class="modal bts-popup" id="btsPopup" aria-hidden="true">
+  <div class="modal-backdrop" data-bts-close></div>
+  <div class="bts-popup-panel" role="dialog" aria-modal="true" aria-label="Back to school special">
+    <button class="modal-close" data-bts-close aria-label="Close">×</button>
+    <div class="bts-popup-visual" aria-hidden="true">
+      <div class="bts-popup-slides" id="btsPopupSlides">
+        <img src="img/bts/bts_firstday.jpg" alt="" class="is-on"/>
+        <img src="img/bts/bts_newgrade.jpg" alt="" loading="lazy"/>
+        <img src="img/bts/bts_impression.jpg" alt="" loading="lazy"/>
+      </div>
+      <div class="bts-popup-dots" id="btsPopupDots"></div>
+    </div>
+    <div class="bts-popup-copy">
+      <div class="bts-lang bts-lang-popup" role="group" aria-label="Language / Idioma">
+        <button type="button" data-bts-lang-btn="en" class="is-on">EN</button>
+        <button type="button" data-bts-lang-btn="es">ES</button>
+      </div>
+      <span class="eyebrow"><span class="dot"></span>
+        <span data-en>Back to School · Aug 3–8</span><span data-es>Regreso a Clases · 3–8 de Agosto</span>
+      </span>
+      <h3 class="bts-popup-title">
+        <span data-en>Their first day<br/>deserves a <em>fresh cut.</em></span>
+        <span data-es>Su primer día merece<br/>un <em>corte nuevo.</em></span>
+      </h3>
+      <div class="bts-popup-deal">
+        <span class="bts-popup-price">$20</span>
+        <span class="bts-popup-what">
+          <span data-en><strong>Cut + Brows</strong><br/>Students 16 &amp; under</span>
+          <span data-es><strong>Corte + Cejas</strong><br/>Estudiantes hasta 16 años</span>
+        </span>
+      </div>
+      <div class="bts-scarcity bts-scarcity-popup">
+        <span class="bts-pill"><span class="pulse"></span><span data-en>Limited spots</span><span data-es>Cupos limitados</span></span>
+        <span class="bts-count" data-bts-countdown aria-live="polite"></span>
+      </div>
+      <a href="#back-to-school" class="btn btn-primary bts-popup-cta" data-bts-close data-bts-cta>
+        <span data-en>Reserve Your Chair</span><span data-es>Reserva Tu Silla</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <p class="bts-popup-fine">
+        <span data-en>New clients only · Kissimmee</span><span data-es>Solo clientes nuevos · Kissimmee</span>
+      </p>
+    </div>
+  </div>
+</div>
+
 <script src="https://api.leadconnectorhq.com/js/form_embed.js" type="text/javascript"></script>
 <script src="barbers-data.js?v=13"></script>
-<script src="app.js?v=30"></script>
+<script src="app.js?v=32"></script>
 </body>
 </html>

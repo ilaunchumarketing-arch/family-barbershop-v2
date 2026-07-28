@@ -419,18 +419,178 @@ window.addEventListener('scroll', () => {
   else { n.classList.remove('scrolled'); }
 });
 
-/* ============ CHAIRS-OPEN TAG (rotates hourly) ============ */
+/* ============ CHAIRS-OPEN TAG (rotates hourly, business hours only) ============ */
 /* The count is keyed to the current hour so it changes every hour
-   (and never reads as a stale, hard-coded number). */
+   (and never reads as a stale, hard-coded number). The tag only shows while
+   the shop is actually open — Mon–Sat 9 AM–7 PM, Sun 10 AM–2 PM, shop-local
+   Eastern time — so it never claims open chairs after hours. */
 (function(){
   const el = document.getElementById('chairsOpenTag');
   if(!el) return;
+  const tag = el.closest('.hero-tag');
   const COUNTS = [3, 5, 2, 4, 3, 2, 5, 4, 2, 3, 4, 5,
                   2, 4, 5, 3, 2, 5, 3, 4, 2, 3, 5, 4]; // one per hour of the day
+  function shopNow(){
+    return new Date(new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }));
+  }
+  function isOpen(d){
+    const day = d.getDay(), hr = d.getHours();
+    return day === 0 ? (hr >= 10 && hr < 14)   // Sun 10 AM – 2 PM
+                     : (hr >= 9 && hr < 19);   // Mon–Sat 9 AM – 7 PM
+  }
   function update(){
-    const n = COUNTS[new Date().getHours() % COUNTS.length];
+    const now = shopNow();
+    const open = isOpen(now);
+    if(tag) tag.style.display = open ? '' : 'none';
+    if(!open) return;
+    const n = COUNTS[now.getHours() % COUNTS.length];
     el.textContent = n + (n === 1 ? ' Chair Open Now' : ' Chairs Open Now');
   }
   update();
   setInterval(update, 60 * 1000); // re-check each minute so it flips on the hour
+})();
+
+/* ============ BACK TO SCHOOL PROMO (Aug 3–8) — section + opening popup ============ */
+(function(){
+  // Promo window (Eastern). Popup + section auto-retire after the window ends.
+  const BTS_START = new Date('2026-08-03T00:00:00-04:00');
+  const BTS_END   = new Date('2026-08-08T23:59:59-04:00');
+
+  const section = document.getElementById('back-to-school');
+  const popup   = document.getElementById('btsPopup');
+  if(!section && !popup) return;
+
+  // Expired → remove both and stop.
+  if(Date.now() > BTS_END.getTime()){
+    if(section) section.remove();
+    if(popup) popup.remove();
+    return;
+  }
+
+  /* --- Language (scoped to the BTS section + popup via html[data-bts-lang]) --- */
+  function applyBtsLang(lang){
+    const l = (lang === 'es') ? 'es' : 'en';
+    document.documentElement.setAttribute('data-bts-lang', l);
+    document.querySelectorAll('[data-bts-lang-btn]').forEach(b =>
+      b.classList.toggle('is-on', b.getAttribute('data-bts-lang-btn') === l));
+    try { localStorage.setItem('fb_home_lang', l); } catch(e){}
+    renderCountdown();
+  }
+  document.addEventListener('click', (e) => {
+    const lb = e.target.closest('[data-bts-lang-btn]');
+    if(lb) applyBtsLang(lb.getAttribute('data-bts-lang-btn'));
+  });
+  let saved = null;
+  try { saved = localStorage.getItem('fb_home_lang'); } catch(e){}
+  const initialLang = saved || ((navigator.language||'').toLowerCase().startsWith('es') ? 'es' : 'en');
+
+  /* --- Countdown (starts-in before Aug 3, ends-in during the week) --- */
+  const CD = {
+    en: { starts:'Starts Mon Aug 3 — ', ends:'Offer ends in ', d:'d', h:'h', m:'m', left:' left to reserve' },
+    es: { starts:'Empieza el lun 3 de agosto — ', ends:'La oferta termina en ', d:'d', h:'h', m:'m', left:' para reservar' }
+  };
+  function renderCountdown(){
+    const lang = document.documentElement.getAttribute('data-bts-lang') === 'es' ? 'es' : 'en';
+    const t = CD[lang];
+    const now = Date.now();
+    const pre = now < BTS_START.getTime();
+    const target = pre ? BTS_START.getTime() : BTS_END.getTime();
+    let ms = Math.max(0, target - now);
+    const d = Math.floor(ms / 86400000); ms -= d * 86400000;
+    const h = Math.floor(ms / 3600000);  ms -= h * 3600000;
+    const m = Math.floor(ms / 60000);
+    const clock = `<strong>${d}${t.d} ${h}${t.h} ${m}${t.m}</strong>`;
+    const html = pre ? (t.starts + clock + t.left) : (t.ends + clock);
+    document.querySelectorAll('[data-bts-countdown]').forEach(el => { el.innerHTML = html; });
+  }
+  setInterval(renderCountdown, 30 * 1000);
+
+  /* --- Section flyers → full-screen lightbox (reuses the site lightbox) --- */
+  const flyerWrap = document.getElementById('btsFlyers');
+  if(flyerWrap){
+    const tiles = Array.from(flyerWrap.querySelectorAll('.bts-flyer'));
+    const openAt = (i) => {
+      lbList = tiles.map(tl => { const im = tl.querySelector('img'); return { src: im.currentSrc || im.src, alt: im.alt }; });
+      lbOpen(i);
+    };
+    tiles.forEach((tl, i) => {
+      tl.addEventListener('click', () => openAt(i));
+      tl.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openAt(i); }
+      });
+    });
+  }
+
+  /* --- Opening popup: shows once per session, ~1s after load --- */
+  function openPopup(){
+    if(!popup) return;
+    popup.classList.add('open');
+    popup.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    fbTrack('ViewContent', { content_name: 'back_to_school_popup', content_category: 'promo' });
+  }
+  function closePopup(){
+    if(!popup) return;
+    popup.classList.remove('open');
+    popup.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+  if(popup){
+    popup.addEventListener('click', (e) => {
+      if(e.target.closest('[data-bts-close]')){
+        const cta = e.target.closest('[data-bts-cta]');
+        // the anchor jump can't happen while the body is scroll-locked —
+        // close first, then scroll to the section ourselves
+        if(cta) e.preventDefault();
+        closePopup();
+        if(cta){
+          fbTrack('ViewContent', { content_name: 'back_to_school_popup_cta', content_category: 'promo' });
+          const target = document.getElementById('back-to-school');
+          if(target) target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape' && popup.classList.contains('open')) closePopup();
+    });
+
+    /* flyer carousel inside the popup */
+    const slides = Array.from(document.querySelectorAll('#btsPopupSlides img'));
+    const dotsWrap = document.getElementById('btsPopupDots');
+    let slideIdx = 0, slideTimer = null;
+    if(slides.length && dotsWrap){
+      dotsWrap.innerHTML = slides.map((_,i) =>
+        `<button type="button" data-bts-dot="${i}" aria-label="Flyer ${i+1}" class="${i===0?'is-on':''}"></button>`).join('');
+      const dots = Array.from(dotsWrap.querySelectorAll('button'));
+      const show = (i) => {
+        slideIdx = (i + slides.length) % slides.length;
+        slides.forEach((s,j) => s.classList.toggle('is-on', j === slideIdx));
+        dots.forEach((d,j) => d.classList.toggle('is-on', j === slideIdx));
+      };
+      const auto = () => { slideTimer = setInterval(() => show(slideIdx + 1), 3500); };
+      dotsWrap.addEventListener('click', (e) => {
+        const d = e.target.closest('[data-bts-dot]');
+        if(!d) return;
+        clearInterval(slideTimer);
+        show(parseInt(d.getAttribute('data-bts-dot'), 10));
+        auto();
+      });
+      if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches) auto();
+    }
+
+    let seen = false;
+    try { seen = sessionStorage.getItem('fb_bts_popup') === '1'; } catch(e){}
+    if(!seen){
+      setTimeout(() => {
+        // don't interrupt an open barber profile / booking modal
+        const busy = document.querySelector('.modal.open, .lightbox.open');
+        if(!busy){
+          openPopup();
+          try { sessionStorage.setItem('fb_bts_popup','1'); } catch(e){}
+        }
+      }, 1100);
+    }
+  }
+
+  applyBtsLang(initialLang);
 })();
