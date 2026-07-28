@@ -501,6 +501,32 @@ window.addEventListener('scroll', () => {
     return;
   }
 
+  /* --- Hero takeover while the promo runs: the deal chip + $20 sticker
+     advertise the Back-to-School special with its dates, and revert to the
+     Tue/Wed special automatically once the promo window passes (this code
+     only runs pre-expiry — the early return above handles after). The ES
+     text goes through window.__i18nES, which the SITE I18N engine merges
+     over its dictionary. --- */
+  const dealBadge = document.querySelector('.hero-deal-badge');
+  const dealText  = document.querySelector('.hero-deal-text');
+  const dealLink  = document.querySelector('.hero-deal');
+  if(dealBadge && dealText && dealLink){
+    dealBadge.textContent = 'Back to School';
+    dealText.innerHTML = '<strong>$20</strong> Cut + Brows for Students · Aug 3–8 Only';
+    dealLink.setAttribute('href', '#back-to-school');
+    dealLink.setAttribute('aria-label', 'Back to School special: $20 cut plus eyebrows for students, August 3 to 8 only');
+  }
+  const stickerDays = document.querySelector('.hero-sticker [data-i18n="sticker.days"]');
+  const stickerNew  = document.querySelector('.hero-sticker [data-i18n="sticker.new"]');
+  if(stickerDays) stickerDays.textContent = 'Aug 3–8';
+  if(stickerNew)  stickerNew.textContent = 'Cut + Brows';
+  window.__i18nES = {
+    'hero.dealbadge': 'Regreso a Clases',
+    'hero.dealtext': '<strong>$20</strong> Corte + Cejas para estudiantes · Solo del 3 al 8 de agosto',
+    'sticker.days': '3–8 Agosto',
+    'sticker.new': 'Corte + Cejas'
+  };
+
   /* --- Language (scoped to the BTS section + popup via html[data-bts-lang]) --- */
   function applyBtsLang(lang){
     const l = (lang === 'es') ? 'es' : 'en';
@@ -716,9 +742,11 @@ window.addEventListener('scroll', () => {
     SITE_LANG = (lang === 'es') ? 'es' : 'en';
     cacheEN();
     document.documentElement.lang = SITE_LANG;
+    const OV = window.__i18nES || {}; // promo-time overrides (e.g. back-to-school hero chip)
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
-      if(SITE_LANG === 'es' && ES[key] != null) el.innerHTML = ES[key];
+      const es = (OV[key] != null) ? OV[key] : ES[key];
+      if(SITE_LANG === 'es' && es != null) el.innerHTML = es;
       else if(EN_CACHE.has(el)) el.innerHTML = EN_CACHE.get(el);
     });
     // re-render everything template-driven in the new language
