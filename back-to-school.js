@@ -1,5 +1,5 @@
 /* ============ FAMILY BARBERSHOP — BACK-TO-SCHOOL LP (page 1 of 2) ============
-   Aug 3–8 promo: $20 cut + brows, students 16 & under, new clients only.
+   Aug 3–8 promo: $20 cut + brows, ALL students 16 & under (new and regular clients).
    THIS page sells the offer: the looks (kids' cuts), how it works, scarcity.
    Booking happens on page 2 (/back-to-school-book) — every "Book Their
    Appointment" tap navigates there. Bilingual EN/ES like the /offer LP.
@@ -40,7 +40,7 @@ const I18N = {
     'logo.tag': 'Family Barbershop · Kissimmee, FL',
     'hook': 'No los mandes de regreso con el corte del verano.',
     'h1.rest': 'Corte + Cejas',
-    'kicker': 'Estudiantes hasta 16 años · Del 3 al 8 de agosto · Solo clientes nuevos',
+    'kicker': 'PARA TODOS LOS ESTUDIANTES hasta 16 años · Del 3 al 8 de agosto',
     'sub': 'Una semana nada más. Baja para ver los cortes del primer día y reserva su silla — toma como un minuto.',
     'pill': 'Cupos limitados',
     'cta.book': 'Reserva Su Cita',
@@ -57,7 +57,7 @@ const I18N = {
     'cuts.c4': 'Skin Fade',
     'cuts.c5': 'Corte Clásico',
     'cuts.c6': 'Lineup Nítido',
-    'cuts.note': '¿No ves su estilo? Cualquier corte de estudiante cuenta — $20 con cejas incluidas, del 3 al 8 de agosto, solo clientes nuevos.',
+    'cuts.note': '¿No ves su estilo? Cualquier corte de estudiante cuenta — $20 con cejas incluidas, del 3 al 8 de agosto, para todos los estudiantes.',
     'how.eyebrow': 'Cómo Funciona',
     'how.h2': 'Tres pasos. <em>Nada más.</em>',
     'how.s1t': 'Reserva su silla',
@@ -65,14 +65,14 @@ const I18N = {
     'how.s2t': 'Tráelo a la barbería',
     'how.s2b': 'Muéstrale al barbero el corte que escogiste. Corte + cejas, listo en unos 30 minutos.',
     'how.s3t': 'Listo pa’l primer día',
-    'how.s3b': 'Pagas <strong>$20</strong> en la barbería. Solo clientes nuevos — ese es todo el deal, sin letra chiquita.',
+    'how.s3b': 'Pagas <strong>$20</strong> en la barbería. Para todos los estudiantes, nuevos y de siempre — ese es todo el deal, sin letra chiquita.',
     'visit.eyebrow': 'Visítanos',
     'visit.addr': 'Dirección',
     'visit.hours': 'Horario',
     'visit.phone': 'Teléfono',
     'visit.directions': 'Cómo llegar',
     'closer.h2': 'Una semana. <em>$20. Corte nuevo.</em>',
-    'closer.reassure': 'Estudiantes hasta 16 años · Corte + cejas · Del 3 al 8 de agosto · Solo clientes nuevos · Cupos limitados.',
+    'closer.reassure': 'PARA TODOS LOS ESTUDIANTES hasta 16 años · Corte + cejas · Del 3 al 8 de agosto · Cupos limitados.',
     'closer.hoursv': 'Lun – Sáb · 9 AM – 7 PM · Dom 10 AM – 2 PM'
   }
 };

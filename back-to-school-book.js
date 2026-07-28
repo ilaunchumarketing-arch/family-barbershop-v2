@@ -48,7 +48,7 @@ function fbTrack(eventName, custom){
 /* ============ I18N ============ */
 const I18N = {
   es: {
-    'bar': '★ <strong>$20</strong> corte + cejas para estudiantes · solo del 3 al 8 de agosto · clientes nuevos',
+    'bar': '★ <strong>$20</strong> corte + cejas PARA TODOS LOS ESTUDIANTES · solo del 3 al 8 de agosto',
     'back': '← Volver a la oferta',
     'logo.tag': 'Family Barbershop · Kissimmee, FL',
     'h1': 'Último paso — <em>escoge su barbero.</em>',
@@ -56,8 +56,8 @@ const I18N = {
     'recap.deal': 'Corte + Cejas',
     'recap.who': 'Estudiantes hasta 16 años',
     'recap.when': 'Del 3 al 8 de agosto',
-    'recap.new': 'Solo clientes nuevos',
-    'barbers.note': '$20 corte + cejas válido del 3 al 8 de agosto para estudiantes hasta 16 años · solo clientes nuevos · cupos limitados — cuando se llenan las sillas de la semana, se acabó.',
+    'recap.new': 'Para todos los estudiantes',
+    'barbers.note': '$20 corte + cejas válido del 3 al 8 de agosto para todos los estudiantes hasta 16 años · cupos limitados — cuando se llenan las sillas de la semana, se acabó.',
     'modal.book': 'Agenda Con',
     'modal.newtab': '¿Problemas para cargar? Abre la reservación en otra pestaña →'
   }
