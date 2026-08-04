@@ -17,6 +17,7 @@ function telLink(phone){ return '+1' + (phone || '').replace(/\D/g,''); }
 function firstName(name){ return (name || '').split(' ')[0]; }
 function bookingMethod(b){
   if(b.booksyUrl)   return 'booksy';
+  if(b.squareUrl)   return 'square';
   if(b.whatsappUrl) return 'whatsapp';
   return 'calendar'; // in-shop GHL calendar
 }
@@ -258,6 +259,7 @@ function bookBarber(b){
     booking_method: bookingMethod(b), promo: 'bts_20', value: 20, currency: 'USD'
   });
   if(b.booksyUrl){   window.open(b.booksyUrl,   '_blank', 'noopener'); return; }
+  if(b.squareUrl){   window.open(b.squareUrl,   '_blank', 'noopener'); return; }
   if(b.whatsappUrl){ window.open(b.whatsappUrl, '_blank', 'noopener'); return; }
   closeProfile();
   openModal(b);

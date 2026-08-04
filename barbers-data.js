@@ -34,6 +34,7 @@ window.FB_BARBERS = [
   {
     id: "bebo",
     calendarUrl: "https://api.leadconnectorhq.com/widget/booking/st1sxqMHG53Lu5qAh0mK",
+    squareUrl: "https://squareup.com/appointments/book/2WXMQ1JC4VHF2/start?utm_source=familybarbershop-website&utm_medium=book_button",
     name: "Bebo",
     specialty: "Precision Cuts & Fades",
     featured: true,
