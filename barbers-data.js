@@ -88,6 +88,7 @@ window.FB_BARBERS = [
   {
     id: "kelvo",
     calendarUrl: "https://api.leadconnectorhq.com/widget/booking/2OVzl5S1rmi6DiLh6EKR",
+    whatsappUrl: "https://wa.me/13212171567?text=Hola%20Kelvo%2C%20quiero%20agendar%20una%20cita%20en%20Family%20Barbershop",
     name: "Kelvo",
     specialty: "Design & Lineup Pro",
     featured: true,
