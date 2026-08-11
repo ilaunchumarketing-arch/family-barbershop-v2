@@ -152,12 +152,17 @@ window.FB_BARBERS = [
     phone: "(786) 234-6663",
     instagram: "jr_dahalloffamer",
     bio: "Thirty years in the trade. Jose handles the classics — pompadours, side parts, scissor cuts — like the old-school masters who taught him.",
-    photo: "img/jose_profile.jpg",
+    photo: "img/jose_profile.jpg?v=2",
     cuts: [
-      "https://images.unsplash.com/photo-1542327897-d73f4005b533?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1509695507497-903c140c43b0?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=400&q=80"
+      "img/jose_work_1.jpg",
+      "img/jose_work_2.jpg",
+      "img/jose_work_3.jpg",
+      "img/jose_work_4.jpg",
+      "img/jose_work_5.jpg",
+      "img/jose_work_6.jpg",
+      "img/jose_work_7.jpg",
+      "img/jose_work_8.jpg",
+      "img/jose_work_9.jpg"
     ]
   },
   {
@@ -192,7 +197,8 @@ window.FB_BARBERS = [
   },
   {
     id: "ricardo",
-    calendarUrl: "https://api.leadconnectorhq.com/widget/booking/pKG6IriilPdoEh8YBDik",
+    calendarUrl: "https://api.leadconnectorhq.com/widget/booking/pKG6IriilPdoEh8YBDik", // sync/backup only — real bookings go to Square below
+    squareUrl: "https://squareup.com/appointments/book/L63938VFGBGFC?utm_source=familybarbershop-website&utm_medium=book_button",
     name: "Ricardo",
     specialty: "Cuts, Fades & Beards", // TODO: replace with Ricardo's real specialty
     featured: true,                    // renders the gold "Master Barber" badge
