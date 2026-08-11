@@ -202,7 +202,7 @@ window.FB_BARBERS = [
     name: "Ricardo",
     specialty: "Cuts, Fades & Beards", // TODO: replace with Ricardo's real specialty
     featured: true,                    // renders the gold "Master Barber" badge
-    // years: omitted until confirmed — templates hide the line rather than guess
+    years: 5,                          // cutting since 2021 (David 2026-08-11)
     status: "open",
     statusText: "Open Today",
     phone: "(787) 925-7775",
